@@ -1,0 +1,1029 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#061519">
+  <meta name="description" content="Archivo HSE: una historia diaria basada en accidentes reales para aprender y prevenir.">
+  <title>Archivo HSE | Historia diaria</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #051014;
+      --panel: #081b20;
+      --panel-2: #0b242a;
+      --ink: #f5fbff;
+      --muted: #9fb8c0;
+      --line: rgba(151, 231, 255, 0.16);
+      --cyan: #19d3e6;
+      --cyan-soft: rgba(25, 211, 230, 0.12);
+      --yellow: #ffd447;
+      --danger: #ff4d38;
+      --shadow: 0 22px 70px rgba(0, 0, 0, 0.34);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 77, 56, 0.11), transparent 230px),
+        radial-gradient(circle at 20% 0%, rgba(25, 211, 230, 0.14), transparent 310px),
+        linear-gradient(180deg, #07191d 0%, #041014 58%, #030b0d 100%);
+      letter-spacing: 0;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .page {
+      width: min(100%, 940px);
+      margin: 0 auto;
+      padding: 18px 16px 30px;
+    }
+
+    .topbar {
+      display: grid;
+      place-items: center;
+      gap: 7px;
+      padding: 8px 0 18px;
+      text-align: center;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: min(420px, 86vw);
+      min-height: 104px;
+      padding: 8px 10px;
+    }
+
+    .logo img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 144px;
+      object-fit: contain;
+    }
+
+    .brand-kicker {
+      color: var(--cyan);
+      font-size: 0.73rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+    }
+
+    .hero {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(8, 27, 32, 0.94), rgba(5, 16, 20, 0.98));
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .story-head {
+      padding: 22px 18px 18px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .date-chip,
+    .file-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 32px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .date-chip {
+      color: #061014;
+      background: var(--cyan);
+      border-color: rgba(25, 211, 230, 0.9);
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.35rem, 12vw, 5.8rem);
+      line-height: 0.88;
+      text-transform: uppercase;
+      font-weight: 950;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    .highlight {
+      color: var(--yellow);
+      text-shadow: 0 0 26px rgba(255, 212, 71, 0.22);
+    }
+
+    .subtitle {
+      max-width: 640px;
+      margin: 14px 0 0;
+      color: #c4d7dc;
+      font-size: 1.02rem;
+      line-height: 1.55;
+    }
+
+    .cover {
+      position: relative;
+      min-height: 245px;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      background:
+        linear-gradient(150deg, rgba(5, 16, 20, 0.16), rgba(5, 16, 20, 0.88)),
+        var(--cover-image, linear-gradient(135deg, #111 0%, #193940 45%, #060d10 100%));
+    }
+
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(25, 211, 230, 0.13) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 44px 44px;
+      opacity: 0.22;
+    }
+
+    .cover::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 46%;
+      background: linear-gradient(180deg, transparent, rgba(5, 16, 20, 0.92));
+    }
+
+    .cover-label {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px;
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .content {
+      display: grid;
+      gap: 18px;
+      padding: 18px;
+    }
+
+    .audio-box {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid rgba(25, 211, 230, 0.22);
+      background: linear-gradient(135deg, rgba(25, 211, 230, 0.12), rgba(255, 77, 56, 0.06));
+    }
+
+    .listen-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .listen-btn,
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 48px;
+      border: 0;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 900;
+      letter-spacing: 0;
+      transition: transform 160ms ease, filter 160ms ease;
+    }
+
+    .listen-btn {
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--danger);
+      color: #fff;
+      text-transform: uppercase;
+      box-shadow: 0 12px 32px rgba(255, 77, 56, 0.22);
+    }
+
+    .listen-btn:hover,
+    .nav-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .duration {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    audio {
+      width: 100%;
+      min-height: 40px;
+    }
+
+    .section {
+      padding-top: 4px;
+    }
+
+    .section h2 {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: 1.08rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .section h2 i {
+      color: var(--cyan);
+    }
+
+    .story-text {
+      display: grid;
+      gap: 12px;
+      color: #cfe0e4;
+      font-size: 1rem;
+      line-height: 1.68;
+    }
+
+    .story-text p {
+      margin: 0;
+    }
+
+    .key-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .key-card {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .number {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      background: var(--yellow);
+      color: #121004;
+      font-weight: 950;
+    }
+
+    .key-copy {
+      min-width: 0;
+    }
+
+    .key-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 5px;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .key-title i {
+      flex: 0 0 auto;
+      color: var(--cyan);
+    }
+
+    .key-card p {
+      margin: 0;
+      color: #bdd1d7;
+      line-height: 1.5;
+      font-size: 0.94rem;
+    }
+
+    .reflection {
+      display: grid;
+      gap: 14px;
+      padding: 16px;
+      border: 1px solid rgba(255, 212, 71, 0.32);
+      background: rgba(255, 212, 71, 0.075);
+    }
+
+    .question {
+      margin: 0;
+      font-size: 1.17rem;
+      line-height: 1.35;
+      font-weight: 900;
+      text-wrap: balance;
+    }
+
+    .source {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .nav-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.055);
+      color: var(--ink);
+    }
+
+    .nav-btn.next {
+      background: var(--cyan);
+      color: #041014;
+      border-color: var(--cyan);
+    }
+
+    .nav-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.45;
+      transform: none;
+      filter: none;
+    }
+
+    .list-view {
+      padding: 22px 18px;
+    }
+
+    .list-head {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .list-head h1 {
+      font-size: clamp(2.2rem, 11vw, 4.9rem);
+    }
+
+    .list-head p {
+      max-width: 680px;
+      margin: 0;
+      color: #c4d7dc;
+      line-height: 1.55;
+    }
+
+    .story-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .story-list-item {
+      display: grid;
+      gap: 8px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.035);
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .story-list-item.locked {
+      opacity: 0.52;
+    }
+
+    .story-list-top {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .story-list-title {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.25;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 28px;
+      padding: 5px 8px;
+      background: var(--cyan-soft);
+      color: var(--cyan);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+
+    .lucide {
+      width: 19px;
+      height: 19px;
+      stroke-width: 2.4;
+    }
+
+    @media (min-width: 620px) {
+      .page {
+        padding: 26px 22px 46px;
+      }
+
+      .story-head,
+      .content {
+        padding: 28px;
+      }
+
+      .cover {
+        min-height: 390px;
+      }
+
+      .listen-btn {
+        width: auto;
+        min-width: 245px;
+      }
+
+      .key-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .key-card {
+        grid-template-columns: 1fr;
+        align-content: start;
+      }
+
+      .nav-actions {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .list-view {
+        padding: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar" aria-label="Encabezado de Archivo HSE">
+      <div class="logo"><img src="assets/logo/LOGO%20CCDC%20FINAL.png" alt="FOCUS HSE"></div>
+      <div class="brand-kicker">ARCHIVO HSE</div>
+    </header>
+
+    <article class="hero" id="storyView" aria-labelledby="storyTitle">
+      <section class="story-head">
+        <div class="meta">
+          <span class="date-chip"><i data-lucide="calendar-days"></i><span id="storyDate"></span></span>
+          <span class="file-chip"><i data-lucide="folder-open"></i><span id="storyFile"></span></span>
+        </div>
+        <h1 id="storyTitle"></h1>
+        <p class="subtitle" id="storySubtitle"></p>
+      </section>
+
+      <section class="cover" id="coverImage" aria-label="Imagen principal de la historia">
+        <div class="cover-label"><i data-lucide="flame"></i><span id="coverLabel"></span></div>
+      </section>
+
+      <div class="content">
+        <section class="audio-box" aria-label="Audio de la historia">
+          <div class="listen-row">
+            <button class="listen-btn" type="button" id="listenButton">
+              <i data-lucide="headphones"></i>
+              <span>Escuchar historia</span>
+            </button>
+            <span class="duration" id="audioDuration"></span>
+          </div>
+          <audio id="storyAudio" controls preload="none"></audio>
+        </section>
+
+        <section class="section" aria-labelledby="whatHappenedTitle">
+          <h2 id="whatHappenedTitle"><i data-lucide="file-warning"></i>Lo que ocurrió</h2>
+          <div class="story-text" id="storyBody"></div>
+        </section>
+
+        <section class="section" aria-labelledby="keyPointsTitle">
+          <h2 id="keyPointsTitle"><i data-lucide="shield-check"></i>3 puntos clave para controlar el evento</h2>
+          <div class="key-grid" id="keyPoints"></div>
+        </section>
+
+        <section class="reflection" aria-label="Reflexión y navegación">
+          <p class="question" id="reflectionQuestion"></p>
+          <p class="source" id="storySource"></p>
+          <div class="nav-actions">
+            <button class="nav-btn" type="button" id="previousStory"><i data-lucide="arrow-left"></i>Historia anterior</button>
+            <button class="nav-btn next" type="button" id="nextStory">Siguiente historia<i data-lucide="arrow-right"></i></button>
+          </div>
+        </section>
+      </div>
+    </article>
+
+    <section class="hero list-view" id="listView" hidden aria-label="Lista maestra de Archivo HSE"></section>
+  </main>
+
+  <script>
+    const ZONA_HORARIA_PUBLICACION = "America/Bogota";
+
+    // Cada historia se desbloquea a las 00:00 en horario Bogota/Quito/Lima.
+    const historias = [
+      {
+        id: "001",
+        logo: "FOCUS HSE",
+        fecha: "26 JUNIO",
+        fechaPublicacion: "2026-06-26",
+        expediente: "Expediente #177",
+        carpetaAssets: "assets/efemerides/1964-06-26-marshalls-creek/",
+        titular: "UNA PEQUEÑA FUGA TERMINÓ EN DESASTRE",
+        palabraResaltada: "DESASTRE",
+        subtitulo: "Un accidente real que dejó una lección para toda la industria.",
+        etiquetaImagen: "Marshalls Creek, Pensilvania - 1964",
+        imagen: "portada.png",
+        audio: "historia.m4a",
+        duracionAudio: "Audio de 5 minutos 38 segundos",
+        parrafos: [
+          "El 26 de junio de 1964, un camión que transportaba explosivos se detuvo en la zona de Marshalls Creek, Pensilvania, luego de detectarse un incendio y señales de pérdida de control en la carga.",
+          "La situación escaló con rapidez. La explosión destruyó vehículos cercanos, afectó estructuras del área y dejó víctimas fatales y heridos.",
+          "La lección sigue vigente: detectar temprano, aislar sin demora y verificar los sistemas críticos puede marcar la diferencia entre una intervención segura y una tragedia."
+        ],
+        puntosClave: [
+          { icono: "scan-search", titulo: "Detectar fugas a tiempo", texto: "Una señal menor debe activar inspección, comunicación y decisión rápida antes de que el evento crezca." },
+          { icono: "traffic-cone", titulo: "Aislar el área", texto: "Con explosivos o sustancias peligrosas, la distancia y el control del perímetro son barreras críticas." },
+          { icono: "settings-2", titulo: "Verificar sistemas críticos", texto: "Frenos, temperatura, sujeción de carga y respuesta de emergencia deben confirmarse antes y durante el traslado." }
+        ],
+        pregunta: "¿Qué habrías hecho tú para evitar este accidente?",
+        fuente: "Fuente: noticia / informe oficial / organismo investigador."
+      },
+      {
+        id: "002",
+        logo: "FOCUS HSE",
+        fecha: "27 JUNIO",
+        fechaPublicacion: "2026-06-27",
+        expediente: "Expediente #002",
+        carpetaAssets: "assets/efemerides/1988-06-27-gare-de-lyon/",
+        titular: "UN TREN ENTRÓ A LA ESTACIÓN... SIN FRENOS",
+        palabraResaltada: "SIN FRENOS",
+        subtitulo: "Un accidente real que dejó una lección para toda la industria.",
+        etiquetaImagen: "Gare de Lyon, París, Francia - 1988",
+        imagen: "portada.png",
+        audio: "historia.m4a",
+        duracionAudio: "Audio de 4 minutos 58 segundos",
+        parrafos: [
+          "La tarde del 27 de junio de 1988, un tren de cercanías se dirigía hacia la estación Gare de Lyon. Durante el recorrido, un pasajero accionó el freno de emergencia y, al intentar restablecer el sistema, se redujo gravemente la capacidad de frenado.",
+          "Mientras descendía por la pendiente de acceso a la estación, el tren ganó velocidad e impactó contra otro tren detenido y lleno de pasajeros.",
+          "La colisión dejó 56 personas fallecidas y 57 heridas. La investigación mostró una cadena de fallas: presión operativa, verificación insuficiente, comunicación imperfecta y falta de barreras."
+        ],
+        puntosClave: [
+          { icono: "layers", titulo: "No confiar en una sola barrera", texto: "Los sistemas críticos deben asumir que una persona puede equivocarse y contar con controles independientes." },
+          { icono: "check-check", titulo: "Verificar antes de continuar", texto: "Después de intervenir un sistema crítico, se debe confirmar que todo funciona antes de reanudar la operación." },
+          { icono: "radio", titulo: "Comunicar la condición anormal", texto: "La información clara y oportuna permite detener la cadena de errores antes de que se vuelva irreversible." }
+        ],
+        pregunta: "¿Qué habrías hecho tú para evitar este accidente?",
+        fuente: "Fuente: investigación oficial del accidente ferroviario de Gare de Lyon (1988), registros históricos del sistema ferroviario francés y documentación técnica sobre factores humanos."
+      },
+      {
+        id: "003",
+        logo: "FOCUS HSE",
+        fecha: "28 JUNIO",
+        fechaPublicacion: "2026-06-28",
+        expediente: "Expediente #003",
+        carpetaAssets: "assets/efemerides/1988-06-28-bastian-plating/",
+        titular: "ENTRÓ A SALVAR A SU COMPAÑERO... Y NUNCA VOLVIÓ A SALIR",
+        palabraResaltada: "NUNCA VOLVIÓ",
+        subtitulo: "Un accidente real que dejó una lección para toda la industria.",
+        etiquetaImagen: "Bastian Plating Company, Estados Unidos - 1988",
+        imagen: "portada.png",
+        audio: "historia.m4a",
+        duracionAudio: "Audio de 5 minutos 5 segundos",
+        parrafos: [
+          "El 28 de junio de 1988, durante una jornada de mantenimiento en Bastian Plating Company, un trabajador ingresó a un tanque de proceso para realizar limpieza. En el interior, una reacción química había generado cianuro de hidrógeno.",
+          "Apenas ingresó, perdió el conocimiento. Sus compañeros intentaron rescatarlo uno tras otro y también colapsaron.",
+          "Cinco trabajadores fallecieron. La investigación confirmó falta de evaluación atmosférica, ausencia de procedimiento efectivo y rescates improvisados sin protección adecuada."
+        ],
+        puntosClave: [
+          { icono: "gauge", titulo: "Evaluar la atmósfera", texto: "Antes de ingresar a un espacio confinado, se debe medir oxígeno, gases tóxicos e inflamables con equipos calibrados." },
+          { icono: "route", titulo: "Planificar el rescate", texto: "Todo ingreso debe contar con un plan de rescate definido. Improvisar puede multiplicar las víctimas." },
+          { icono: "shield-alert", titulo: "No entrar sin protección", texto: "El impulso de ayudar no reemplaza la capacitación, el equipo respiratorio y el procedimiento de emergencia." }
+        ],
+        pregunta: "¿Qué habrías hecho tú para evitar este accidente?",
+        fuente: "Fuente: investigación oficial del accidente de Bastian Plating Company (1988), informes técnicos sobre espacios confinados y documentación de seguridad industrial."
+      },
+      {
+        id: "004",
+        logo: "FOCUS HSE",
+        fecha: "29 JUNIO",
+        fechaPublicacion: "2026-06-29",
+        expediente: "Expediente #004",
+        carpetaAssets: "assets/efemerides/1972-06-29-sunshine-mine/",
+        titular: "EL FUEGO NO LOS MATÓ... EL HUMO SÍ",
+        palabraResaltada: "EL HUMO SÍ",
+        subtitulo: "Un accidente real que dejó una lección para toda la industria.",
+        etiquetaImagen: "Mina Sunshine, Kellogg, Idaho, Estados Unidos - 1972",
+        imagen: "portada.png",
+        audio: "historia.m4a",
+        duracionAudio: "Audio de 4 minutos 3 segundos",
+        parrafos: [
+          "La mañana del 29 de junio de 1972, cientos de trabajadores seguían atrapados o siendo buscados dentro de la mina Sunshine. El día anterior se había producido un incendio en galerías subterráneas.",
+          "El humo y el monóxido de carbono se desplazaron por kilómetros de túneles, alcanzando sectores donde muchos mineros creían estar a salvo.",
+          "El accidente dejó 91 trabajadores fallecidos, la mayoría intoxicada por gases de combustión. Controlar el humo puede ser tan crítico como apagar el fuego."
+        ],
+        puntosClave: [
+          { icono: "cloud-fog", titulo: "Controlar el humo", texto: "En espacios subterráneos, los gases de combustión suelen ser la principal causa de muerte." },
+          { icono: "route", titulo: "Proteger las rutas de escape", texto: "Las vías de evacuación deben permanecer operativas y conocidas aun durante un incendio." },
+          { icono: "hard-hat", titulo: "Preparar para sobrevivir", texto: "Capacitación, simulacros y equipos de autorescate pueden marcar la diferencia entre escapar o quedar atrapado." }
+        ],
+        pregunta: "¿Qué habrías hecho tú para evitar este accidente?",
+        fuente: "Fuente: investigación oficial del accidente de la Mina Sunshine, Mine Safety and Health Administration (MSHA) y registros históricos de la industria minera de Estados Unidos."
+      },
+      {
+        id: "005",
+        logo: "FOCUS HSE",
+        fecha: "30 JUNIO",
+        fechaPublicacion: "2026-06-30",
+        expediente: "Expediente #005",
+        carpetaAssets: "assets/efemerides/1992-06-30-superior-nemadji-derailment/",
+        titular: "NO VEÍAN EL PELIGRO... PERO 80 000 PERSONAS TUVIERON QUE ABANDONAR SUS CASAS",
+        palabraResaltada: "80 000 PERSONAS",
+        subtitulo: "Un accidente real que dejó una lección para toda la industria.",
+        etiquetaImagen: "Superior, Wisconsin, Estados Unidos - 1992",
+        imagen: "portada.png",
+        audio: "historia.m4a",
+        duracionAudio: "Audio de 4 minutos 48 segundos",
+        parrafos: [
+          "La mañana del 30 de junio de 1992, un tren de carga cruzaba el puente ferroviario sobre el río Nemadji. Entre sus vagones viajaban cisternas cargadas con benceno.",
+          "Varios vagones descarrilaron y cayeron al río. No había llamas ni humo negro, pero el benceno empezó a evaporarse y una nube de vapores inflamables se desplazó hacia zonas pobladas.",
+          "Las autoridades ordenaron una evacuación masiva de aproximadamente 80 000 personas. El accidente demostró que una emergencia química puede poner en riesgo a ciudades completas incluso sin una explosión visible."
+        ],
+        puntosClave: [
+          { icono: "badge-help", titulo: "Identificar la sustancia", texto: "Conocer el producto permite definir distancias de seguridad y la estrategia correcta de respuesta." },
+          { icono: "eye-off", titulo: "Reconocer peligros invisibles", texto: "La ausencia de fuego no significa ausencia de riesgo: los vapores pueden ser inflamables o tóxicos." },
+          { icono: "users-round", titulo: "Evacuar salva vidas", texto: "Cuando el riesgo alcanza a la población, retirar a las personas puede ser la barrera más efectiva." }
+        ],
+        pregunta: "¿Qué habrías hecho tú para evitar este accidente?",
+        fuente: "Fuente: investigación oficial del descarrilamiento del río Nemadji (1992), registros históricos del accidente ferroviario de Superior, Wisconsin, documentación HazMat y guías de respuesta a emergencias."
+      },
+      {
+        id: "006",
+        logo: "FOCUS HSE",
+        fecha: "1 JULIO",
+        fechaPublicacion: "2026-07-01",
+        expediente: "Expediente #006",
+        carpetaAssets: "assets/efemerides/1918-07-01-chilwell-shell-factory/",
+        titular: "LA FÁBRICA DESAPARECIÓ EN MENOS DE CINCO SEGUNDOS",
+        palabraResaltada: "CINCO SEGUNDOS",
+        subtitulo: "Un accidente real que dejó una lección para toda la industria.",
+        etiquetaImagen: "National Shell Filling Factory, Chilwell, Reino Unido - 1918",
+        imagen: "portada.png",
+        audio: "historia.m4a",
+        duracionAudio: "Audio de 4 minutos 41 segundos",
+        parrafos: [
+          "La mañana del 1 de julio de 1918, cientos de hombres y mujeres trabajaban en la National Shell Filling Factory de Chilwell, una de las plantas de municiones más importantes del Reino Unido.",
+          "Su labor consistía en llenar proyectiles de artillería con TNT. Una violenta explosión sacudió la planta y detonó en cadena miles de proyectiles y toneladas de explosivos.",
+          "En menos de cinco segundos, gran parte del complejo quedó reducido a escombros. La explosión dejó 134 trabajadores fallecidos y cerca de 250 heridos."
+        ],
+        puntosClave: [
+          { icono: "sparkles", titulo: "Controlar fuentes de ignición", texto: "En procesos con explosivos, una chispa o descarga puede iniciar una catástrofe." },
+          { icono: "boxes", titulo: "Limitar inventarios", texto: "Reducir la cantidad de material explosivo por área disminuye el potencial destructivo." },
+          { icono: "wall", titulo: "Separar y contener", texto: "La distancia y las barreras físicas ayudan a impedir que una detonación se propague en cadena." }
+        ],
+        pregunta: "¿Qué habrías hecho tú para evitar este accidente?",
+        fuente: "Fuente: registros históricos de la National Shell Filling Factory de Chilwell, Imperial War Museum e investigaciones históricas sobre la explosión del 1 de julio de 1918."
+      },
+      {
+        id: "007",
+        logo: "FOCUS HSE",
+        fecha: "2 JULIO",
+        fechaPublicacion: "2026-07-02",
+        expediente: "Expediente #007",
+        carpetaAssets: "assets/efemerides/1937-07-02-holditch-mine/",
+        titular: "EL FUEGO PODÍA ESPERAR... LAS PERSONAS NO",
+        palabraResaltada: "LAS PERSONAS NO",
+        subtitulo: "Un accidente real que dejó una lección para toda la industria.",
+        etiquetaImagen: "Mina Holditch, Staffordshire, Inglaterra - 1937",
+        imagen: "portada.png",
+        audio: "historia.m4a",
+        duracionAudio: "Audio de 4 minutos 56 segundos",
+        parrafos: [
+          "La mañana del 2 de julio de 1937, un incendio comenzó en una galería principal de la mina Holditch. Al inicio pareció una emergencia controlable.",
+          "Mientras algunos mineros evacuaban, otros permanecieron intentando contener el fuego. Pero el humo avanzó, la temperatura aumentó y la atmósfera comenzó a volverse explosiva.",
+          "Una mezcla de metano, polvo de carbón y altas temperaturas provocó una explosión subterránea. El accidente dejó 30 mineros fallecidos."
+        ],
+        puntosClave: [
+          { icono: "heart-pulse", titulo: "Priorizar la vida", texto: "Ningún equipo, instalación o proceso justifica exponer personas a un riesgo incontrolable." },
+          { icono: "refresh-cw", titulo: "Reevaluar la emergencia", texto: "Una estrategia válida al inicio puede dejar de ser segura minutos después." },
+          { icono: "log-out", titulo: "Evacuar a tiempo", texto: "Ordenar una evacuación no es perder el control; es reconocer que la prioridad cambió." }
+        ],
+        pregunta: "¿Qué habrías hecho tú para evitar este accidente?",
+        fuente: "Fuente: investigación oficial del desastre de la mina Holditch (1937), registros históricos de la industria minera británica y documentación técnica sobre incendios y explosiones en minería subterránea."
+      },
+      {
+        id: "008",
+        logo: "FOCUS HSE",
+        fecha: "3 JULIO",
+        fechaPublicacion: "2026-07-03",
+        expediente: "Expediente #008",
+        carpetaAssets: "assets/efemerides/1988-07-03-iran-air-655/",
+        titular: "290 PERSONAS MURIERON POR UNA IDENTIFICACIÓN EQUIVOCADA",
+        palabraResaltada: "IDENTIFICACIÓN EQUIVOCADA",
+        subtitulo: "Un accidente real que dejó una lección para toda la industria.",
+        etiquetaImagen: "Estrecho de Ormuz, Golfo Pérsico - 1988",
+        imagen: "portada.png",
+        audio: "historia.m4a",
+        duracionAudio: "Audio de 4 minutos 44 segundos",
+        parrafos: [
+          "La mañana del 3 de julio de 1988, el Vuelo 655 de Iran Air despegó de Bandar Abbas siguiendo una ruta comercial habitual. A bordo viajaban 290 personas.",
+          "Mientras el avión ascendía, el USS Vincennes operaba en una zona de alta tensión. En pocos minutos, una cadena de interpretaciones erróneas llevó a confundir la aeronave civil con una amenaza militar.",
+          "A las 10:54, se lanzaron dos misiles superficie-aire. No hubo sobrevivientes. El caso quedó como una lección crítica sobre verificación, estrés operativo y decisiones irreversibles bajo presión."
+        ],
+        puntosClave: [
+          { icono: "badge-check", titulo: "Verificar antes de actuar", texto: "Las decisiones críticas deben confirmarse con múltiples fuentes cuando sus consecuencias son irreversibles." },
+          { icono: "brain", titulo: "Reconocer el estrés", texto: "La presión puede sesgar la percepción y hacer que una interpretación parezca más segura de lo que es." },
+          { icono: "message-circle-warning", titulo: "Cuestionar conclusiones", texto: "Una buena cultura de seguridad permite detener una decisión cuando existen dudas razonables." }
+        ],
+        pregunta: "¿Qué habrías hecho tú para evitar este accidente?",
+        fuente: "Fuente: investigación formal sobre el derribo del Vuelo 655 de Iran Air, Encyclopaedia Britannica y documentación histórica de la Corte Internacional de Justicia."
+      },
+      {
+        id: "009",
+        logo: "FOCUS HSE",
+        fecha: "4 JULIO",
+        fechaPublicacion: "2026-07-04",
+        expediente: "Expediente #009",
+        carpetaAssets: "assets/efemerides/1944-07-04-aarhus-port/",
+        titular: "EL PELIGRO YA HABÍA SIDO ADVERTIDO... NADIE ACTUÓ",
+        palabraResaltada: "NADIE ACTUÓ",
+        subtitulo: "Un accidente real que dejó una lección para toda la industria.",
+        etiquetaImagen: "Puerto de Aarhus, Dinamarca - 1944",
+        imagen: "portada.png",
+        audio: "historia.m4a",
+        duracionAudio: "Audio pendiente de duración",
+        parrafos: [
+          "La mañana del 4 de julio de 1944, el puerto de Aarhus operaba con aparente normalidad. Entre las embarcaciones había una barcaza con una gran cantidad de municiones.",
+          "Ya existían preocupaciones por manipular explosivos tan cerca de instalaciones portuarias y áreas urbanas, pero la operación continuó.",
+          "En menos de diez segundos, una explosión destruyó la barcaza, dañó gran parte del puerto y afectó sectores de la ciudad. El accidente dejó 39 personas fallecidas y cerca de 250 heridas."
+        ],
+        puntosClave: [
+          { icono: "triangle-alert", titulo: "Actuar sobre el riesgo", texto: "Identificar un peligro no basta: debe convertirse en acciones concretas de control." },
+          { icono: "package-x", titulo: "Limitar material peligroso", texto: "Reducir inventarios y separar cargas disminuye el impacto potencial de una explosión." },
+          { icono: "map", titulo: "Planificar el peor caso", texto: "Las emergencias deben prepararse para el evento de mayor consecuencia, no solo el más probable." }
+        ],
+        pregunta: "¿Qué habrías hecho tú para evitar este accidente?",
+        fuente: "Fuente: investigación histórica sobre la explosión del Puerto de Aarhus (1944), archivos históricos del puerto y documentación sobre seguridad en almacenamiento y transporte de explosivos."
+      },
+      {
+        id: "010",
+        logo: "FOCUS HSE",
+        fecha: "5 JULIO",
+        fechaPublicacion: "2026-07-05",
+        expediente: "Expediente #010",
+        carpetaAssets: "assets/efemerides/1990-07-05-arco-channelview/",
+        titular: "EL INSTRUMENTO QUE DEBÍA PROTEGER LA PLANTA... HABÍA DEJADO DE FUNCIONAR",
+        palabraResaltada: "HABÍA DEJADO DE FUNCIONAR",
+        subtitulo: "Un accidente real que dejó una lección para toda la industria.",
+        etiquetaImagen: "ARCO Chemical Company, Channelview, Texas - 1990",
+        imagen: "portada.png",
+        audio: "historia.m4a",
+        duracionAudio: "Audio de 5 minutos 14 segundos",
+        parrafos: [
+          "La noche del 5 de julio de 1990, trabajadores realizaban mantenimiento en el área de tratamiento de aguas residuales de ARCO Chemical Company, en Channelview, Texas.",
+          "El analizador de oxígeno había dejado de funcionar correctamente desde el 15 de junio. Durante ese tiempo, el oxígeno aumentó lentamente dentro del tanque hasta formar una mezcla explosiva.",
+          "Al reiniciar un compresor, una fuente normal de energía encendió la atmósfera explosiva. La detonación dejó 17 trabajadores fallecidos, 5 heridos y daños superiores a 100 millones de dólares."
+        ],
+        puntosClave: [
+          { icono: "activity", titulo: "Redundar instrumentos críticos", texto: "Los equipos que protegen un proceso deben contar con verificaciones, alarmas y respaldo independiente." },
+          { icono: "clipboard-check", titulo: "Gestionar el mantenimiento", texto: "Toda intervención sobre barreras críticas debe analizarse como un cambio que puede modificar el riesgo." },
+          { icono: "check-check", titulo: "Verificar antes de reiniciar", texto: "Antes de arrancar un proceso, se debe confirmar que todas las barreras de seguridad funcionan." }
+        ],
+        pregunta: "¿Qué habrías hecho tú para evitar este accidente?",
+        fuente: "Fuente: investigación oficial de OSHA sobre la explosión de ARCO Chemical Company, Oil & Gas Journal e investigaciones históricas del accidente de Channelview."
+      },
+      {
+        id: "011",
+        logo: "FOCUS HSE",
+        fecha: "6 JULIO",
+        fechaPublicacion: "2026-07-06",
+        expediente: "Expediente #011",
+        carpetaAssets: "assets/efemerides/1988-07-06-piper-alpha/",
+        titular: "UNA SOLA VÁLVULA CAMBIÓ PARA SIEMPRE LA HISTORIA DEL PETRÓLEO",
+        palabraResaltada: "UNA SOLA VÁLVULA",
+        subtitulo: "Un accidente real que dejó una lección para toda la industria.",
+        etiquetaImagen: "Plataforma Piper Alpha, Mar del Norte, Reino Unido - 1988",
+        imagen: "portada.png",
+        audio: "historia.m4a",
+        duracionAudio: "Audio de 4 minutos 53 segundos",
+        parrafos: [
+          "La noche del 6 de julio de 1988, la plataforma Piper Alpha operaba con aparente normalidad. Durante el turno de día, una válvula de seguridad de una bomba de condensado había sido retirada para mantenimiento.",
+          "Durante el turno de noche, la bomba operativa presentó problemas. Al no encontrar toda la información del mantenimiento pendiente, los operadores pusieron en marcha la bomba intervenida.",
+          "El gas escapó, encontró una fuente de ignición y comenzó una cadena de fallas. La tragedia dejó 167 fallecidos y transformó para siempre la seguridad offshore."
+        ],
+        puntosClave: [
+          { icono: "clipboard-list", titulo: "Comunicar permisos críticos", texto: "Un permiso de trabajo solo protege si la información llega completa al siguiente turno." },
+          { icono: "check-check", titulo: "Verificar antes de arrancar", texto: "Un equipo intervenido no debe volver a servicio sin confirmar físicamente sus protecciones críticas." },
+          { icono: "layers", titulo: "Mantener capas de protección", texto: "Las barreras deben seguir funcionando incluso cuando ocurre el primer error." }
+        ],
+        pregunta: "¿Qué habrías hecho tú para evitar este accidente?",
+        fuente: "Fuente: Investigación Cullen sobre el desastre de Piper Alpha, registros históricos del accidente y documentación técnica sobre seguridad de procesos offshore."
+      }
+    ];
+
+    // Placeholder visual: se usa si una historia todavia no tiene portada cargada.
+    const placeholderIndustrial = `
+      linear-gradient(135deg, rgba(255, 77, 56, 0.36), rgba(25, 211, 230, 0.16) 42%, rgba(3, 11, 13, 0.96)),
+      radial-gradient(circle at 28% 32%, rgba(255, 212, 71, 0.28), transparent 24%),
+      linear-gradient(90deg, #0a171b 0%, #20363d 48%, #050b0d 100%)
+    `;
+
+    function resaltarTitular(texto, palabra) {
+      if (!palabra || !texto.includes(palabra)) return texto;
+      return texto.replace(palabra, `<span class="highlight">${palabra}</span>`);
+    }
+
+    function resolverAsset(carpeta, archivo) {
+      if (!archivo) return "";
+      if (archivo.startsWith("http") || archivo.includes("/")) return archivo;
+      return `${carpeta}${archivo}`;
+    }
+
+    function fechaBogota() {
+      const partes = new Intl.DateTimeFormat("en-US", {
+        timeZone: ZONA_HORARIA_PUBLICACION,
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit"
+      }).formatToParts(new Date());
+      const mapa = Object.fromEntries(partes.map((parte) => [parte.type, parte.value]));
+      return `${mapa.year}-${mapa.month}-${mapa.day}`;
+    }
+
+    function esDisponible(historia, hoy) {
+      return historia.fechaPublicacion <= hoy;
+    }
+
+    function historiaPorDefecto(hoy) {
+      const disponibles = historias.filter((historia) => esDisponible(historia, hoy));
+      return disponibles.at(-1) || historias[0];
+    }
+
+    function historiaSolicitada(params, hoy) {
+      const id = params.get("id") || params.get("expediente");
+      const fecha = params.get("fecha");
+      const encontrada = historias.find((historia) => historia.id === id || historia.fechaPublicacion === fecha);
+      if (encontrada && esDisponible(encontrada, hoy)) return encontrada;
+      return historiaPorDefecto(hoy);
+    }
+
+    function irAHistoria(historia) {
+      const url = new URL(window.location.href);
+      url.search = "";
+      url.searchParams.set("id", historia.id);
+      window.location.href = url.toString();
+    }
+
+    function configurarNavegacion(historia, hoy) {
+      const indice = historias.findIndex((item) => item.id === historia.id);
+      const anterior = historias[indice - 1];
+      const siguiente = historias[indice + 1];
+      const botonAnterior = document.getElementById("previousStory");
+      const botonSiguiente = document.getElementById("nextStory");
+
+      botonAnterior.disabled = !anterior;
+      botonAnterior.onclick = () => anterior && irAHistoria(anterior);
+
+      const siguienteDisponible = siguiente && esDisponible(siguiente, hoy);
+      botonSiguiente.disabled = !siguienteDisponible;
+      botonSiguiente.onclick = () => siguienteDisponible && irAHistoria(siguiente);
+    }
+
+    function renderHistoria(historia, hoy) {
+      document.getElementById("storyView").hidden = false;
+      document.getElementById("listView").hidden = true;
+      document.getElementById("storyDate").textContent = historia.fecha;
+      document.getElementById("storyFile").textContent = historia.expediente;
+      document.getElementById("storyTitle").innerHTML = resaltarTitular(historia.titular, historia.palabraResaltada);
+      document.getElementById("storySubtitle").textContent = historia.subtitulo;
+      document.getElementById("coverLabel").textContent = historia.etiquetaImagen;
+      document.getElementById("audioDuration").textContent = historia.duracionAudio;
+      document.getElementById("reflectionQuestion").textContent = historia.pregunta;
+      document.getElementById("storySource").textContent = historia.fuente;
+
+      const cover = document.getElementById("coverImage");
+      const imagenRuta = resolverAsset(historia.carpetaAssets, historia.imagen);
+      cover.style.setProperty("--cover-image", imagenRuta ? `url("${imagenRuta}") center / cover` : placeholderIndustrial);
+
+      const audio = document.getElementById("storyAudio");
+      const audioRuta = resolverAsset(historia.carpetaAssets, historia.audio);
+      if (audioRuta) {
+        audio.src = audioRuta;
+        audio.style.display = "none";
+      } else {
+        audio.removeAttribute("src");
+        audio.style.display = "none";
+      }
+
+      document.getElementById("listenButton").addEventListener("click", () => {
+        if (audioRuta) {
+          audio.style.display = "block";
+          audio.play();
+        } else {
+          document.getElementById("audioDuration").textContent = "Audio pendiente: sube historia.m4a y cambia historiaDelDia.audio";
+        }
+      });
+
+      document.getElementById("storyBody").innerHTML = historia.parrafos
+        .map((parrafo) => `<p>${parrafo}</p>`)
+        .join("");
+
+      document.getElementById("keyPoints").innerHTML = historia.puntosClave
+        .map((punto, index) => `
+          <article class="key-card">
+            <div class="number">${index + 1}</div>
+            <div class="key-copy">
+              <h3 class="key-title"><i data-lucide="${punto.icono}"></i>${punto.titulo}</h3>
+              <p>${punto.texto}</p>
+            </div>
+          </article>
+        `)
+        .join("");
+
+      configurarNavegacion(historia, hoy);
+      lucide.createIcons();
+    }
+
+    function renderLista(hoy) {
+      document.getElementById("storyView").hidden = true;
+      const lista = document.getElementById("listView");
+      lista.hidden = false;
+      lista.innerHTML = `
+        <div class="list-head">
+          <div class="brand-kicker">LISTA MAESTRA</div>
+          <h1>ARCHIVO HSE</h1>
+          <p>Historias desbloqueadas segun la fecha local de Bogota, Quito y Lima. Las fechas futuras aparecen bloqueadas hasta su dia de publicacion.</p>
+        </div>
+        <div class="story-list">
+          ${historias.map((historia) => {
+            const disponible = esDisponible(historia, hoy);
+            const contenido = `
+              <div class="story-list-top">
+                <span>${historia.fecha} · ${historia.expediente}</span>
+                <span class="status-pill"><i data-lucide="${disponible ? "unlock" : "lock"}"></i>${disponible ? "Disponible" : "Bloqueada"}</span>
+              </div>
+              <h2 class="story-list-title">${historia.titular}</h2>
+            `;
+            return disponible
+              ? `<a class="story-list-item" href="?id=${historia.id}">${contenido}</a>`
+              : `<div class="story-list-item locked">${contenido}</div>`;
+          }).join("")}
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const hoy = fechaBogota();
+    if (params.has("lista")) {
+      renderLista(hoy);
+    } else {
+      renderHistoria(historiaSolicitada(params, hoy), hoy);
+    }
+  </script>
+</body>
+</html>
