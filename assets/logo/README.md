@@ -1,8 +1,8 @@
-# Logo
+# Logos de Focus HSE
 
-Cuando tengas el logo, guardalo aqui como:
+Archivos disponibles para la cabecera:
 
-- `focus-hse.png`
-
-Luego se puede reemplazar el texto `FOCUS HSE` por una imagen en el header.
+- `focus-hse.png`: Logo oficial en corte apaisado sobre fondo blanco.
+- `focus-hse-square.jpg`: Versión cuadrada con mayor margen para avatares o perfiles.
+- `focus-hse-dark.png`: Versión adaptada en modo oscuro con fondo transparente para contrastar con fondos oscuros.
 

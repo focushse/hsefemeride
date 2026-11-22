@@ -65,16 +65,30 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: min(420px, 86vw);
-      min-height: 104px;
-      padding: 8px 10px;
+      width: fit-content;
+      max-width: min(280px, 82vw);
+      padding: 9px 20px;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid rgba(25, 211, 230, 0.35);
+      box-shadow: 
+        0 10px 28px rgba(0, 0, 0, 0.45),
+        0 0 24px rgba(25, 211, 230, 0.16);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .logo:hover {
+      transform: translateY(-2px);
+      box-shadow: 
+        0 14px 34px rgba(0, 0, 0, 0.55),
+        0 0 30px rgba(25, 211, 230, 0.26);
     }
 
     .logo img {
       display: block;
       width: 100%;
       height: auto;
-      max-height: 144px;
+      max-height: 64px;
       object-fit: contain;
     }
 
@@ -507,7 +521,7 @@
 <body>
   <main class="page">
     <header class="topbar" aria-label="Encabezado de Archivo HSE">
-      <div class="logo"><img src="assets/logo/LOGO%20CCDC%20FINAL.png" alt="FOCUS HSE"></div>
+      <div class="logo"><img src="assets/logo/focus-hse.png" alt="FOCUS HSE"></div>
       <div class="brand-kicker">ARCHIVO HSE</div>
     </header>
 
