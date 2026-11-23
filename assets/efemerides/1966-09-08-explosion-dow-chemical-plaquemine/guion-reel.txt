@@ -1,0 +1,13 @@
+¿Por qué el sistema que maneja una planta química nunca debe ser el mismo que la apaga en una emergencia?
+
+El 8 de septiembre de 1966, en la planta de Dow Chemical en Plaquemine, un reactor químico empezó a calentarse fuera de control.
+
+Un exceso de catalizador aceleró la reacción. El sensor de temperatura que debía avisar estaba conectado a la misma computadora que regulaba el flujo de refrigerante... y se trabó.
+
+Como no existía un sistema de parada de emergencia independiente, nadie vio venir la catástrofe.
+
+La presión reventó el reactor de acero como una lata de refresco, lanzando una nube inflamable que ardió en una bola de fuego colosal.
+
+A partir de este siniestro nació una regla de oro en ingeniería: el sistema de seguridad instrumentada debe ser completamente independiente del control operativo.
+
+La redundancia salva vidas.

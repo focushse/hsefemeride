@@ -1,0 +1,13 @@
+¿Cómo un solo cable de sensor olvidado pudo hacer estallar sesenta casas al mismo tiempo en tres ciudades enteras?
+
+El 13 de septiembre de 2018, en Massachusetts, una cuadrilla de gas reemplazaba una tubería vieja en una esquina.
+
+Desconectaron el caño viejo y abrieron el nuevo. Pero nadie revisó los planos con atención: los sensores que le decían a la planta cuánta presión mandar seguían enchufados al caño viejo que ya no tenía gas.
+
+El sensor marcó 'cero presión'. La computadora pensó que la ciudad se quedaba sin gas y abrió las válvulas al máximo.
+
+Una ola monstruosa de gas natural entró a miles de casas con ochenta veces la presión normal. Los calefones y cocinas reventaron en llamas simultáneamente: sesenta casas destruidas, un muerto y miles de evacuados.
+
+En redes de servicios, antes de cortar un caño, verifica los lazos de control. La gestión del cambio no es burocracia: salva ciudades enteras.
+
+La seguridad está en los detalles.

@@ -1,0 +1,15 @@
+¿Por qué operar una máquina de corte pesada entre dos personas sin seguridad sincronizada es una receta para la mutilación?
+
+El 14 de septiembre de 2017, en una fábrica metalúrgica, dos operarios cortaban tiras largas de chapa en una guillotina industrial.
+
+Para trabajar más rápido, habían puenteado el comando bimanual y usaban un pedal en el piso.
+
+El operario que manejaba el pedal creyó que su compañero ya había terminado de acomodar la chapa y apretó el pedal.
+
+Pero el ayudante todavía tenía los dedos abajo de la cuchilla sosteniendo la lámina.
+
+La cuchilla de acero templado bajó con toneladas de fuerza en una milésima de segundo: tres dedos amputados en el acto.
+
+Si dos personas operan una máquina, las dos deben tener mandos bimanuales obligatorios y la cuchilla debe tener guarda fija.
+
+Tu compañero no puede leer tu mente.
