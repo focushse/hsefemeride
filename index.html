@@ -604,16 +604,44 @@
 
     .story-list-item {
       display: grid;
-      gap: 8px;
-      padding: 14px;
+      grid-template-columns: 130px 1fr;
+      gap: 16px;
+      align-items: center;
+      padding: 12px 14px;
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, 0.035);
       color: var(--ink);
       text-decoration: none;
+      border-radius: 4px;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+
+    .story-list-item:hover {
+      border-color: var(--accent);
+      background: rgba(25, 211, 230, 0.04);
+      transform: translateY(-1px);
     }
 
     .story-list-item.locked {
       opacity: 0.52;
+    }
+
+    .story-list-thumb {
+      width: 130px;
+      height: 78px;
+      border-radius: 3px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background-color: #0b181c;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      flex-shrink: 0;
+    }
+
+    .story-list-info {
+      display: grid;
+      gap: 8px;
+      min-width: 0;
     }
 
     .story-list-top {
@@ -653,6 +681,18 @@
       width: 19px;
       height: 19px;
       stroke-width: 2.4;
+    }
+
+    @media (max-width: 619px) {
+      .story-list-item {
+        grid-template-columns: 90px 1fr;
+        gap: 12px;
+        padding: 10px;
+      }
+      .story-list-thumb {
+        width: 90px;
+        height: 60px;
+      }
     }
 
     @media (min-width: 620px) {
@@ -1123,7 +1163,7 @@
         palabraResaltada: "BAJO LA TIERRA",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Queens, Nueva York, Estados Unidos - 1969",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 3 minutos 15 segundos",
         parrafos: [
@@ -1162,7 +1202,7 @@
         palabraResaltada: "GAS INVISIBLE",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Planta Frigorífica, Santa Fe, Argentina - 2015",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 3 minutos 04 segundos",
         parrafos: [
@@ -1201,7 +1241,7 @@
         palabraResaltada: "NUBE BLANCA",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Planta Química ICMESA, Meda y Seveso, Italia - 1976",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 3 minutos 22 segundos",
         parrafos: [
@@ -1240,7 +1280,7 @@
         palabraResaltada: "EFECTO PUENTE",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Silo de Acopio, Región Pampeana, Argentina - 2013",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 3 minutos 01 segundos",
         parrafos: [
@@ -1279,7 +1319,7 @@
         palabraResaltada: "CONFIAR EN UN SENSOR",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Planta Metalmecánica - 2018",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 36 segundos",
         parrafos: [
@@ -1318,7 +1358,7 @@
         palabraResaltada: "DESCONECTADO",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Montaje de Nave Industrial - 2012",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 36 segundos",
         parrafos: [
@@ -1357,7 +1397,7 @@
         palabraResaltada: "EFECTO CASCADA",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Pozo de Bombeo y Cámara Séptica, Argentina - 2019",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 53 segundos",
         parrafos: [
@@ -1396,7 +1436,7 @@
         palabraResaltada: "VÁLVULA BLOQUEADA",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Refinería de Chiba, Bahía de Tokio, Japón - 1973",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 56 segundos",
         parrafos: [
@@ -1435,7 +1475,7 @@
         palabraResaltada: "ARCO ELÉCTRICO INVISIBLE",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Obra Vial y Corredor Eléctrico - 2016",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 56 segundos",
         parrafos: [
@@ -1474,7 +1514,7 @@
         palabraResaltada: "CAMBIO DE DISEÑO",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Hotel Hyatt Regency, Kansas City, Estados Unidos - 1981",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 3 minutos 24 segundos",
         parrafos: [
@@ -1514,7 +1554,7 @@
         palabraResaltada: "SOLDADURA SIN ALIVIO",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Complejo Petroquímico, Planta de Gas - 1984",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 3 minutos 01 segundos",
         parrafos: [
@@ -1553,7 +1593,7 @@
         palabraResaltada: "LÍNEA DE FUEGO MORTAL",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Patio de Maniobras Industriales - 2017",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 23 segundos",
         parrafos: [
@@ -1592,7 +1632,7 @@
         palabraResaltada: "FALTA DE INERTIZACIÓN",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Isla Coode, Puerto de Melbourne, Australia - 1991",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 3 minutos 01 segundos",
         parrafos: [
@@ -1631,7 +1671,7 @@
         palabraResaltada: "EN EL SINFÍN",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Planta de Acopio Agrícola, Córdoba, Argentina - 2016",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 53 segundos",
         parrafos: [
@@ -1670,7 +1710,7 @@
         palabraResaltada: "EN EL ARRANQUE",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Estación de Gasoducto y Compresión - 2004",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 44 segundos",
         parrafos: [
@@ -1709,7 +1749,7 @@
         palabraResaltada: "COMO UN MISIL",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Refinería Union Oil, Romeoville, Illinois, EE.UU. - 1984",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 3 minutos 07 segundos",
         parrafos: [
@@ -1748,7 +1788,7 @@
         palabraResaltada: "UN BARBIJO COMÚN",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Cabina de Pintura Industrial - 2018",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 3 minutos 16 segundos",
         parrafos: [
@@ -1787,7 +1827,7 @@
         palabraResaltada: "IGNORAR LAS ALARMAS",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Oleoducto Línea 6B, Río Kalamazoo, Michigan, EE.UU. - 2010",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 3 minutos 03 segundos",
         parrafos: [
@@ -1826,7 +1866,7 @@
         palabraResaltada: "LA CHAPA PLÁSTICA",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Cubierta de Galpón Industrial - 2015",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 3 minutos 01 segundos",
         parrafos: [
@@ -1865,7 +1905,7 @@
         palabraResaltada: "EL RELÁMPAGO EN EL TABLERO",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Subestación y Tablero Eléctrico Industrial - 2019",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 3 minutos 27 segundos",
         parrafos: [
@@ -1905,7 +1945,7 @@
         palabraResaltada: "VAGÓN CISTERNA AL SOL",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Planta Química BASF, Ludwigshafen, Alemania - 1948",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 22 segundos",
         parrafos: [
@@ -1944,7 +1984,7 @@
         palabraResaltada: "COLAPSO DEL ANDAMIO",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Obra en Construcción, Edificio en Altura - 2017",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 1 minutos 52 segundos",
         parrafos: [
@@ -1983,7 +2023,7 @@
         palabraResaltada: "SOLDAR UN TANQUE VACÍO",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Taller Metalúrgico, Mantenimiento Industrial - 2014",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 1 minutos 51 segundos",
         parrafos: [
@@ -2022,7 +2062,7 @@
         palabraResaltada: "RÍO INVISIBLE DE PROPILENO",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Distrito Urbano de Kaohsiung, Taiwán - 2014",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 08 segundos",
         parrafos: [
@@ -2061,7 +2101,7 @@
         palabraResaltada: "ATAJO EN LA SIERRA CIRCULAR",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Aserradero y Carpintería Industrial - 2018",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 1 minutos 49 segundos",
         parrafos: [
@@ -2100,7 +2140,7 @@
         palabraResaltada: "NUBE AMARILLA DE CLORO",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Planta Potabilizadora de Agua, Sala de Cloración - 2005",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 13 segundos",
         parrafos: [
@@ -2139,7 +2179,7 @@
         palabraResaltada: "VUELCO DEL AUTOELEVADOR",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Centro de Distribución Logística, Patio de Cargas - 2016",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 1 minutos 57 segundos",
         parrafos: [
@@ -2178,7 +2218,7 @@
         palabraResaltada: "DETONACIÓN DE BEIRUT",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Hangar 12, Puerto de Beirut, Líbano - 2020",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 29 segundos",
         parrafos: [
@@ -2217,7 +2257,7 @@
         palabraResaltada: "MINA SAN JOSÉ",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Yacimiento San José, Caldera, Atacama, Chile - 2010",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 11 segundos",
         parrafos: [
@@ -2256,7 +2296,7 @@
         palabraResaltada: "TUBERÍA ADELGAZADA AL LÍMITE",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Refinería de Petróleo Chevron, Richmond, California - 2012",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 46 segundos",
         parrafos: [
@@ -2296,7 +2336,7 @@
         palabraResaltada: "SOBREALCANCE EN LA ESCALERA",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Planta Industrial, Mantenimiento Eléctrico - 2018",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 17 segundos",
         parrafos: [
@@ -2335,7 +2375,7 @@
         palabraResaltada: "INCENDIO DE BOIS DU CAZIER",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Mina de Carbón Bois du Cazier, Marcinelle, Bélgica - 1956",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 23 segundos",
         parrafos: [
@@ -2374,7 +2414,7 @@
         palabraResaltada: "EXPLOSIÓN EN EL TALLER",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Taller de Mantenimiento de Maquinaria Pesada - 2017",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 20 segundos",
         parrafos: [
@@ -2413,7 +2453,7 @@
         palabraResaltada: "BLEVE DE SUNRISE PROPANE",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Planta Distribuidora de GLP, Toronto, Canadá - 2008",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 22 segundos",
         parrafos: [
@@ -2452,7 +2492,7 @@
         palabraResaltada: "RODILLO: CUANDO LA MÁQUINA",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Línea de Envasado y Empaque Industrial - 2019",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 15 segundos",
         parrafos: [
@@ -2491,7 +2531,7 @@
         palabraResaltada: "CATACLISMO DE TIANJIN",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Zona Portuaria de Binhai, Puerto de Tianjin, China - 2015",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 26 segundos",
         parrafos: [
@@ -2530,7 +2570,7 @@
         palabraResaltada: "COLAPSO TÉRMICO EN LA ZANJA",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Tendido de Ductos a Cielo Abierto, Zona Semiárida - 2016",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 19 segundos",
         parrafos: [
@@ -2569,7 +2609,7 @@
         palabraResaltada: "SINDHURAKSHAK",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Base Naval de Bombay, Submarino INS Sindhurakshak - 2013",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 17 segundos",
         parrafos: [
@@ -2608,7 +2648,7 @@
         palabraResaltada: "AMOLADORA SIN GUARDA",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Taller de Carpintería Metálica y Montaje - 2018",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 13 segundos",
         parrafos: [
@@ -2647,7 +2687,7 @@
         palabraResaltada: "TRAMPA DEL SULFHÍDRICO",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Planta de Tratamiento de Efluentes Industriales - 2014",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 26 segundos",
         parrafos: [
@@ -2687,7 +2727,7 @@
         palabraResaltada: "SAYANO-SHÚSHENSKAYA",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Central Hidroeléctrica Sayano-Shúshenskaya, Jakasia, Rusia - 2009",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 29 segundos",
         parrafos: [
@@ -2726,7 +2766,7 @@
         palabraResaltada: "PUNTO CIEGO Y RETROCESO",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Frente de Pavimentación y Obra Vial en Construcción - 2017",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 12 segundos",
         parrafos: [
@@ -2765,7 +2805,7 @@
         palabraResaltada: "ÁCIDOS Y ÁLCALIS",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Planta de Tratamiento y Reciclaje de Residuos Industriales - 1996",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 47 segundos",
         parrafos: [
@@ -2804,7 +2844,7 @@
         palabraResaltada: "HUECO EN LA PENUMBRA",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Taller de Mantenimiento de Flota de Transporte Pesado - 2015",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 28 segundos",
         parrafos: [
@@ -2843,7 +2883,7 @@
         palabraResaltada: "ASFIXIA MASIVA DEL LAGO NYOS",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Lago Volcánico Nyos, Noroeste de Camerún - 1986",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 30 segundos",
         parrafos: [
@@ -2882,7 +2922,7 @@
         palabraResaltada: "SODA CÁUSTICA",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Depósito de Reactivos Químicos y Limpieza Industrial - 2018",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 36 segundos",
         parrafos: [
@@ -2921,7 +2961,7 @@
         palabraResaltada: "CHISPA INVISIBLE",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Planta Fraccionadora de Solventes e Hidrocarburos - 2000",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 28 segundos",
         parrafos: [
@@ -2960,7 +3000,7 @@
         palabraResaltada: "PIE EN EL PEDAL",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Taller de Plegado y Deformación de Chapas Metálicas - 2019",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 16 segundos",
         parrafos: [
@@ -2999,7 +3039,7 @@
         palabraResaltada: "EXPLOSIÓN DE AMUAY",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Complejo Refinador de Paraguaná (CRP), Refinería de Amuay, Venezuela - 2012",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 31 segundos",
         parrafos: [
@@ -3038,7 +3078,7 @@
         palabraResaltada: "ARCO EN EL TENDIDO AÉREO",
         subtitulo: "Un accidente real que dejó una lección para toda la industria.",
         etiquetaImagen: "Obra de Mantenimiento de Fachadas y Vía Pública - 2016",
-        imagen: "portada.png",
+        imagen: "portada.jpeg",
         audio: "historia.m4a",
         duracionAudio: "Audio de 2 minutos 32 segundos",
         parrafos: [
@@ -3318,7 +3358,35 @@ ${leccion1}
 
       const cover = document.getElementById("coverImage");
       const imagenRuta = resolverAsset(historia.carpetaAssets, historia.imagen);
-      cover.style.setProperty("--cover-image", imagenRuta ? `url("${imagenRuta}") center / cover` : placeholderIndustrial);
+
+      const aplicarCover = (url) => {
+        cover.style.backgroundImage = `linear-gradient(150deg, rgba(5, 16, 20, 0.16), rgba(5, 16, 20, 0.88)), url("${url}")`;
+        cover.style.backgroundPosition = "center, center";
+        cover.style.backgroundSize = "cover, cover";
+        cover.style.backgroundRepeat = "no-repeat, no-repeat";
+        cover.style.setProperty("--cover-image", `url("${url}") center / cover`);
+      };
+
+      if (imagenRuta) {
+        aplicarCover(imagenRuta);
+        const testImg = new Image();
+        testImg.onerror = () => {
+          const fallback = historia.imagen && historia.imagen.endsWith(".jpeg")
+            ? resolverAsset(historia.carpetaAssets, "portada.png")
+            : resolverAsset(historia.carpetaAssets, "portada.jpeg");
+          const testFallback = new Image();
+          testFallback.onload = () => aplicarCover(fallback);
+          testFallback.onerror = () => {
+            cover.style.backgroundImage = placeholderIndustrial;
+            cover.style.setProperty("--cover-image", placeholderIndustrial);
+          };
+          testFallback.src = fallback;
+        };
+        testImg.src = imagenRuta;
+      } else {
+        cover.style.backgroundImage = placeholderIndustrial;
+        cover.style.setProperty("--cover-image", placeholderIndustrial);
+      }
 
       const audioRuta = resolverAsset(historia.carpetaAssets, historia.audio);
       configurarAudio(audioRuta);
@@ -3352,19 +3420,26 @@ ${leccion1}
       lista.hidden = false;
       lista.innerHTML = `
         <div class="list-head">
-          <div class="brand-kicker">LISTA MAESTRA</div>
+          <div class="brand-kicker">BIBLIOTECA DE CASOS</div>
           <h1>ARCHIVO HSE</h1>
-          <p>Historias desbloqueadas segun la fecha local de Bogota, Quito y Lima. Las fechas futuras aparecen bloqueadas hasta su dia de publicacion.</p>
+          <p>Historias desbloqueadas según la fecha local de Bogotá, Quito y Lima. Las fechas futuras aparecen bloqueadas hasta su día de publicación.</p>
         </div>
         <div class="story-list">
           ${historias.map((historia) => {
             const disponible = esDisponible(historia, hoy);
+            const imgRuta = resolverAsset(historia.carpetaAssets, historia.imagen);
+            const thumbBg = imgRuta
+              ? `background-image: linear-gradient(135deg, rgba(5, 16, 20, 0.1), rgba(5, 16, 20, 0.65)), url('${imgRuta}');`
+              : `background: ${placeholderIndustrial};`;
             const contenido = `
-              <div class="story-list-top">
-                <span>${historia.fecha} · ${historia.expediente}</span>
-                <span class="status-pill"><i data-lucide="${disponible ? "unlock" : "lock"}"></i>${disponible ? "Disponible" : "Bloqueada"}</span>
+              <div class="story-list-thumb" style="${thumbBg}"></div>
+              <div class="story-list-info">
+                <div class="story-list-top">
+                  <span>${historia.fecha} · ${historia.expediente}</span>
+                  <span class="status-pill"><i data-lucide="${disponible ? "unlock" : "lock"}"></i>${disponible ? "Disponible" : "Bloqueada"}</span>
+                </div>
+                <h2 class="story-list-title">${historia.titular}</h2>
               </div>
-              <h2 class="story-list-title">${historia.titular}</h2>
             `;
             return disponible
               ? `<a class="story-list-item" href="?id=${historia.id}">${contenido}</a>`
