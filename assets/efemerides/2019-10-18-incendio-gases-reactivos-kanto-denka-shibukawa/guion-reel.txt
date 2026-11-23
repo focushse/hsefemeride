@@ -1,0 +1,11 @@
+El 18 de octubre de 2019, en Shibukawa, Japón, la planta química de Kanto Denka Kogyo sufrió una violenta explosión de gases especiales.
+
+La empresa llenaba cilindros con trifluoruro de nitrógeno, un gas crítico para fabricar microchips. Pero este gas tiene una trampa: es un oxidante voraz.
+
+Dentro de la tubería de carga había una microscópica película de grasa. Al abrir el gas a alta presión, la compresión adiabática encendió la grasa en microsegundos.
+
+El tubo de acero ardió por dentro como pólvora y reventó el colector, desatando una explosión que destruyó el sector de llenado.
+
+La lección de Focus HSE: con gases oxidantes y fluorados, la limpieza debe ser quirúrgica; una sola gota de grasa convierte el acero en combustible.
+
+La seguridad está en los detalles.

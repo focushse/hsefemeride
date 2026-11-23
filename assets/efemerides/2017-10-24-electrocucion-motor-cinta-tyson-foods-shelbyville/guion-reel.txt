@@ -1,0 +1,11 @@
+El 24 de octubre de 2017, en Shelbyville, Tennessee, la planta procesadora de Tyson Foods vivió una tragedia evitable.
+
+Una cinta transportadora se detuvo. Un técnico de mantenimiento de 37 años fue a reparar el motor eléctrico.
+
+El piso estaba empapado por el lavado de la planta. Confiado, abrió la caja de bornes sin cortar la térmica en el tablero y sin guantes dieléctricos.
+
+Tocó los conductores vivos a 480 voltios. Con el suelo mojado, la corriente atravesó su corazón con una potencia destructiva. Murió en el acto.
+
+La lección de Focus HSE: en electricidad nunca supongas nada; corta la energía en el tablero, pon tu candado LOTO y mide siempre con voltímetro.
+
+La seguridad está en los detalles.

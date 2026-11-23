@@ -1,0 +1,13 @@
+El 23 de octubre de 1989, en Pasadena, Texas, el complejo petroquímico Phillips 66 desapareció bajo una explosión colosal.
+
+Un grupo de contratistas hacía mantenimiento en una válvula conectada a un reactor de polietileno. Para operarla, usaban mangueras de aire comprimido.
+
+Las mangueras eran idénticas y no tenían marcas. Las conectaron al revés: la válvula se abrió por completo en lugar de cerrarse.
+
+En segundos, 38 toneladas de gas etileno a alta presión se derramaron en la planta. La nube gigante encontró ignición y estalló con la fuerza de 2,4 toneladas de dinamita.
+
+Murieron 23 trabajadores y 314 quedaron heridos. Tras esta tragedia, nació la norma mundial de Seguridad de Procesos (PSM).
+
+La lección de Focus HSE: en válvulas críticas, un error de conexión no puede ser físicamente posible; exige diseño Poka-Yoke y doble bloqueo.
+
+La seguridad está en los detalles.
