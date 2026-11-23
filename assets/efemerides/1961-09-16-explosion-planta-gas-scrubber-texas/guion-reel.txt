@@ -1,0 +1,13 @@
+¿Sabías que un compresor de gas puede explotar si le entra una sola gota de líquido?
+
+16 de septiembre de 1961. Planta de gas en Texas. Los compresores rugen a máxima potencia cuando el separador de succión falla en silencio.
+
+El flotante de nivel se trabó con impurezas. Los hidrocarburos líquidos no se drenaron y viajaron directo al compresor reciprocante. Pero los líquidos no se comprimen.
+
+El golpe hidráulico destrozó la culata de acero como si fuera vidrio. Miles de metros cúbicos de gas a alta presión se liberaron en segundos, encontrando una chispa en los motores.
+
+La explosión mató a tres operadores al instante.
+
+La lección de HSE es tajante: nunca confíes en un solo sensor de nivel. Exige enclavamientos de parada automática redundantes y purgas operativas.
+
+La seguridad está en los detalles.

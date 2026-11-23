@@ -1,0 +1,13 @@
+¿Sabías que el acero de un tanque de gas puede quebrarse como si fuera de cristal si se enfría demasiado?
+
+25 de septiembre de 1998. Planta de gas Esso Longford en Australia. Una falla detuvo la bomba de aceite caliente que calefaccionaba un intercambiador de calor.
+
+Sin calor, el gas líquido evaporándose congeló el recipiente de acero al carbono a menos 48 grados Celsius. A esa temperatura, el acero pierde toda ductilidad y se vuelve frágil.
+
+Los operadores, sin ingenieros en planta y sin entender el fenómeno criogénico, decidieron reinyectar de golpe aceite hirviendo a 230 grados.
+
+El choque térmico partió el tanque en dos como una taza de porcelana. Miles de toneladas de gas detonaron en una inmensa bola de fuego.
+
+Murieron dos operarios y toda la provincia se quedó sin gas dos semanas. La termodinámica no perdona la falta de capacitación.
+
+La seguridad está en los detalles.

@@ -1,0 +1,13 @@
+¿Confías en la tecla de la pared antes de tocar un cable con las manos desnudas?
+
+22 de septiembre de 2018. Nave industrial. Un electricista de 34 años sube en una tijera elevadora a seis metros de altura para cambiar una luminaria LED.
+
+Presiona el interruptor de la pared. La luz se apaga. Confiado, sube sin guantes dieléctricos y toma los cables con los dedos.
+
+Pero el interruptor tenía un error de instalación: cortaba el neutro, no la fase. La línea seguía energizada con 220 voltios vivos.
+
+La corriente atravesó su corazón y descargó por la barandilla metálica de la plataforma. Murió en el acto.
+
+En electricidad nunca se supone: aplica LOTO en el tablero general y comprueba siempre la ausencia de tensión con multímetro.
+
+La seguridad está en los detalles.
