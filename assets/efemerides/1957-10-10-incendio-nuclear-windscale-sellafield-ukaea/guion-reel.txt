@@ -1,0 +1,13 @@
+El 10 de octubre de 1957, en Sellafield, Reino Unido, el reactor nuclear de Windscale se incendió en el más absoluto secreto.
+
+Los ingenieros querían liberar energía acumulada en el grafito mediante calor. Pero había un error letal: las sondas de temperatura no estaban en la parte más caliente del núcleo.
+
+Creyendo que el reactor estaba frío, aplicaron más calor. El uranio metálico y el grafito comenzaron a arder al rojo vivo.
+
+Durante tres días, el fuego radiactivo ardió sin control. Tuvieron que inundar el reactor con agua arriesgando una explosión de hidrógeno.
+
+La nube de yodo-131 contaminó cientos de kilómetros de campos en Gran Bretaña.
+
+La lección de Focus HSE: en procesos térmicos y nucleares, nunca operes a ciegas; exige medición exacta en los puntos más críticos.
+
+La seguridad está en los detalles.
