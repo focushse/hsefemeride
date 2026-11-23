@@ -25,25 +25,57 @@ Una falla eléctrica imprevista en el circuito de control activó la válvula se
 
 12 de julio de 2018.
 
-En una concurrida planta metalmecánica...
+En una moderna planta de componentes metalmecánicos y autopartes...
 
-una prensa hidráulica de cuatrocientas toneladas producía piezas estampadas a ritmo vertiginoso.
+la línea de producción de chasis operaba a su máxima capacidad diaria.
 
-Durante el cambio de turno...
+En el centro de la celda de trabajo se encontraba una colosal prensa hidráulica de cuatrocientas toneladas...
 
-un operario advirtió restos de viruta metálica atorados en el centro de la matriz inferior. Para no reiniciar el ciclo del equipo ni perder tiempo de producción...
+capaz de moldear gruesas láminas de acero en ciclos repetitivos de menos de diez segundos.
 
-decidió no realizar el bloqueo eléctrico ni despresurizar el circuito hidráulico.
+La máquina contaba con avanzados dispositivos de protección operativa...
 
-Confiaba ciegamente en que la cortina de luz infrarroja detendría el movimiento si introducía sus manos.
+incluyendo cortinas ópticas de seguridad infrarrojas que detenían el ciclo si un objeto o persona cruzaba el haz de luz durante el trabajo normal.
 
-Pero los componentes electrónicos pueden fallar. Un cortocircuito en el tablero secundario puenteó la señal de seguridad...
+Hacia el mediodía...
 
-y en una fracción de segundo...
+el operador detectó que virutas y rebabas de metal se estaban acumulando en la matriz inferior, lo que amenazaba con rayar las piezas y detener la producción.
 
-el pesado ariete superior descendió con una fuerza devastadora.
+El procedimiento formal de la empresa exigía aplicar el protocolo LOTO: cortar el interruptor eléctrico principal, colocar un candado con tarjeta de consignación, despresurizar los acumuladores hidráulicos y colocar físicamente un calzo mecánico de acero macizo entre la bancada y el ariete superior.
 
-El operario fue aplastado al instante en la zona de troquelado. Ningún sensor electrónico reemplaza a un candado de consignación y a un calzo mecánico de acero que soporte físicamente la gravedad.
+Sin embargo...
+
+el operario consideró que realizar todo ese procedimiento le llevaría más de quince minutos...
+
+mientras que retirar la viruta le tomaría apenas veinte segundos.
+
+Confiando en que la cortina de luz protegería su vida...
+
+el trabajador no apagó la máquina ni bloqueó la energía hidráulica. Introdujo el torso y los brazos directamente en el espacio entre ambas matrices.
+
+Pero los dispositivos electrónicos y ópticos están diseñados para el ciclo de operación...
+
+no son barreras de aislamiento de energía para mantenimiento.
+
+En ese preciso instante...
+
+una electroválvula del circuito servohidráulico sufrió un cortocircuito interno por vibración. La válvula conmutó inesperadamente...
+
+y el circuito hidráulico liberó cientos de bares de presión acumulada sobre el cilindro maestro.
+
+A pesar de que el haz infrarrojo estaba interrumpido...
+
+el fallo en el tablero puenteó la señal de control. El pesado ariete de varias toneladas descendió a plena carrera con una violencia inaudita.
+
+El operario fue atrapado al instante en la zona de la matriz...
+
+falleciendo en el acto por aplastamiento masivo sin posibilidad de reacción.
+
+La investigación posterior de los inspectores de trabajo fue concluyente: ningún sensor, barrera óptica o paro de emergencia electrónico sustituye el corte físico de la energía principal y la colocación de trabas mecánicas.
+
+La gravedad y la presión hidráulica no negocian. Si tu cuerpo va a ingresar en una zona de peligro...
+
+la energía debe ser absolutamente cero.
 
 La seguridad...
 
