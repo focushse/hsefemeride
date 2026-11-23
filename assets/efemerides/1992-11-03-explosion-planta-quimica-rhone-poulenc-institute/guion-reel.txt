@@ -1,0 +1,11 @@
+El 3 de noviembre de 1992, en Institute, Virginia Occidental, la planta química de Rhone-Poulenc se convirtió en un volcán tóxico.
+
+En la unidad de pesticidas, arrancaban un reactor que contenía químicos altamente venenosos derivados del fosgeno. Pero el sistema de enfriamiento falló en silencio.
+
+La temperatura comenzó a subir descontroladamente en una reacción exotérmica en cadena. No había válvulas automáticas de corte independiente.
+
+El reactor estalló en pedazos: un trabajador murió en el impacto y una nube de gases tóxicos asfixiantes cubrió todo el valle del río Kanawha.
+
+La lección de Focus HSE: en reactores químicos peligrosos, el control nunca puede depender de un solo circuito; exige sistemas instrumentados de seguridad independientes.
+
+La seguridad está en los detalles.

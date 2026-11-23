@@ -1,0 +1,11 @@
+El 28 de octubre de 2011, en Crosby, Texas, la planta química de Arkema estuvo al borde del abismo por un fallo de refrigeración.
+
+Allí fabrican peróxidos orgánicos, químicos inestables que deben mantenerse congelados. Si se calientan por encima de su temperatura crítica, se descomponen solos en una reacción en cadena violenta.
+
+El sistema de frío principal falló y el generador de respaldo no arrancó a tiempo. En los depósitos, la temperatura empezó a subir grado a grado como un reloj de cuenta regresiva.
+
+Los tambores comenzaron a hincharse y estallaron en bolas de fuego negro, liberando gases densos y sofocantes.
+
+La lección de Focus HSE: con químicos autorreactivos, el frío no puede fallar jamás; exige triple respaldo energético y monitoreo remoto continuo.
+
+La seguridad está en los detalles.
