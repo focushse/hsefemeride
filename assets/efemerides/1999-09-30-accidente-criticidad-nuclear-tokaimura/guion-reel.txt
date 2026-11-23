@@ -1,0 +1,13 @@
+¿Qué ocurre cuando unos operarios usan baldes de acero de cocina para mezclar uranio enriquecido?
+
+30 de septiembre de 1999. Tokaimura, Japón. Planta nuclear JCO. Para apurar la entrega de combustible, la gerencia permite saltarse los pasos lentos del manual.
+
+Dos técnicos vierten uranio líquido con embudos y baldes comunes dentro de un tanque ancho. Nadie controló la báscula.
+
+El límite seguro era de 2,4 kilos de uranio. Al vaciar el séptimo balde, sumaron 16 kilos. De repente, una luz azul brillante inundó la sala: la radiación de Cherenkov.
+
+Habían creado un reactor nuclear casero fuera de control. Los neutrones atravesaron sus cuerpos al instante.
+
+Ambos trabajadores murieron tras agonías inhumanas. La lección de HSE es definitiva: en procesos críticos, un atajo operacional no ahorra tiempo, cuesta vidas.
+
+La seguridad está en los detalles.
