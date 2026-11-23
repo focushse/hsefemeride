@@ -1,0 +1,13 @@
+¿Sabías que puentear un sistema de alarma en una planta química puede estar a centímetros de causar un desastre mundial?
+
+El 28 de agosto de 2008, en la planta de Bayer CropScience en Virginia Occidental, estaban probando un sistema de control digital nuevo para fabricar pesticidas.
+
+Como las alarmas no paraban de sonar y los retrasaban, los supervisores decidieron anular los bloqueos de seguridad automáticos y cargar los químicos manualmente.
+
+Cargaron el solvente a la temperatura equivocada. Se desató una reacción química en cadena fuera de control y el tanque de residuos estalló como una bomba, matando a dos trabajadores.
+
+Un pedazo gigante de acero voló y cayó a pocos metros de un tanque que guardaba dieciocho toneladas de isocianato de metilo, el mismo gas venenoso de Bhopal.
+
+Jamás anules un enclavamiento de seguridad. Si el sistema dice alto, es alto.
+
+La seguridad está en los detalles.

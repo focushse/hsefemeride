@@ -1,0 +1,13 @@
+¿Sabías que una cañería cerrada que no se usa puede ser la parte más peligrosa de toda una refinería?
+
+El 1 de septiembre de 1992, en la refinería de La Mède en Francia, una explosión colosal destruyó la unidad de craqueo catalítico y mató a seis operarios.
+
+¿Qué falló? No fue un reactor gigante: fue un pedazo de caño secundario de bypass que estaba cerrado con una válvula desde hacía meses.
+
+En la industria los llaman tramos muertos o dead legs. Como el gas no circula, el agua y los ácidos se quedan estancados en el fondo, corroyendo el metal por dentro como una carcoma invisible.
+
+La pared de acero se adelgazó tanto que reventó a 40 bares de presión, liberando una nube de gas que detonó en segundos.
+
+En tus circuitos de proceso, mapea e inspecciona con ultrasonido cada tramo muerto. Lo que no se mueve, también se destruye.
+
+La seguridad está en los detalles.
