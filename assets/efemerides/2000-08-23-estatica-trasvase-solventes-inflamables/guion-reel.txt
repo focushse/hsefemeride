@@ -1,0 +1,15 @@
+¿Sabías que un líquido cayendo dentro de un tambor puede generar más de diez mil voltios de electricidad estática sin que te des cuenta?
+
+El 23 de agosto del año 2000, en una planta fraccionadora en Indiana, un operador llenaba un contenedor metálico con tolueno.
+
+Metió la manguera apenas por la tapa y empezó a bombear a toda velocidad. El líquido caía como una cascada, chapoteando y generando fricción.
+
+El operador vio la pinza de puesta a tierra tirada en el suelo, pero no la conectó porque pensó que 'era solo un tamborcito'.
+
+La carga electrostática subió en el líquido hasta que saltó una chispa invisible hacia el metal. La nube de vapores de tolueno detonó en una bola de fuego instantánea.
+
+La planta ardió por completo y el operario sufrió quemaduras críticas.
+
+Con líquidos inflamables, el puente equipotencial y la puesta a tierra no son opcionales: salvan tu vida.
+
+La seguridad está en los detalles.
