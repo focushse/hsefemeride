@@ -1,0 +1,11 @@
+¿Puede el calor del sol partir un vagón de acero macizo como si fuera papel?
+
+El 28 de julio de 1948, en la planta BASF de Ludwigshafen, un vagón cisterna con 30 toneladas de gas licuado quedó estacionado bajo el sol directo del verano.
+
+Nadie consideró un principio básico de la física: los líquidos se expanden al calentarse. Al no dejarse un margen de espacio libre en el tanque, el líquido llenó cada milímetro cúbico y la presión hidráulica interna se disparó.
+
+El metal no resistió. El tanque reventó liberando una inmensa nube inflamable que encendió al instante: 207 trabajadores perdieron la vida y la fábrica quedó arrasada.
+
+La lección es sagrada: en gases licuados, el margen de llenado y el alivio térmico salvan vidas.
+
+En seguridad de procesos, la física no perdona descuidos.
