@@ -1,0 +1,9 @@
+El 26 de noviembre de 2018, en Nueva Jersey, un operario murió aplastado dentro de una paletizadora en una planta de Refresco Beverages.
+
+Una botella se cayó en la línea. Para no frenar la máquina, abrió la reja de protección. El sensor magnético de la puerta no cortó la energía porque alguien lo había puenteado con un imán falso.
+
+El trabajador metió el cuerpo para sacar la botella. La máquina creyó que la línea seguía llena y disparó el brazo neumático.
+
+Fue aplastado al instante por un equipo que nunca debió estar encendido.
+
+¿La lección de Focus HSE? Jamás puentees un sensor de seguridad. Pon candado LOTO antes de entrar. La seguridad está en los detalles.

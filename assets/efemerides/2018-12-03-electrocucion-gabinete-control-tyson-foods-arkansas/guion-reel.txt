@@ -1,0 +1,9 @@
+El 3 de diciembre de 2018, en Arkansas, un técnico electromecánico de Tyson Foods murió electrocutado buscando una falla en un tablero.
+
+El gabinete estaba vivo a 480 voltios. Para medir rápido, metió el tester sin ponerse guantes de goma dieléctricos ni máscara de arco eléctrico.
+
+La punta del tester patinó y su mano rozó un borne de cobre pelado. 480 voltios cruzaron su pecho en una milésima de segundo.
+
+OSHA multó a la empresa por violar las normas de seguridad eléctrica en caliente.
+
+¿La lección de Focus HSE? Primero corta y bloquea con LOTO. Si debes medir en tensión, usa guantes dieléctricos certificados y sondas CAT 4. La seguridad está en los detalles.
