@@ -3,4 +3,5 @@
 *.tmp
 *.log
 *.wav
+*.pdf
 __pycache__/

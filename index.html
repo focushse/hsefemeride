@@ -7,6 +7,7 @@
   <meta name="description" content="Archivo HSE: una historia diaria basada en accidentes reales para aprender y prevenir.">
   <title>Archivo HSE | Historia diaria</title>
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <style>
     :root {
       --bg: #051014;
@@ -440,6 +441,38 @@
       font-size: 0.95rem;
     }
 
+    .pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 40px;
+      padding: 8px 16px;
+      border-radius: var(--radius);
+      background: linear-gradient(135deg, #e11d48, #be123c);
+      color: #ffffff;
+      font-weight: 850;
+      font-size: 0.86rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(225, 29, 72, 0.28);
+      transition: transform 160ms ease, filter 160ms ease, box-shadow 160ms ease;
+    }
+
+    .pdf-btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.12);
+      box-shadow: 0 8px 24px rgba(225, 29, 72, 0.42);
+    }
+
+    .pdf-btn.full-width {
+      width: 100%;
+      min-height: 48px;
+      font-size: 0.95rem;
+    }
+
+
     .reflection-actions {
       display: grid;
       gap: 10px;
@@ -786,10 +819,16 @@
           </div>
           <div class="audio-footer-row">
             <span class="duration" id="audioDuration"></span>
-            <a class="whatsapp-btn" id="whatsappShareAudioBtn" target="_blank" rel="noopener noreferrer" title="Compartir este caso por WhatsApp">
-              <i data-lucide="share-2"></i>
-              <span>Compartir en WhatsApp</span>
-            </a>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <button class="pdf-btn" id="downloadPdfAudioBtn" type="button" title="Descargar Charla Preoperativa en PDF (2 páginas)">
+                <i data-lucide="file-text"></i>
+                <span>Descargar Charla (PDF)</span>
+              </button>
+              <a class="whatsapp-btn" id="whatsappShareAudioBtn" target="_blank" rel="noopener noreferrer" title="Compartir este caso por WhatsApp">
+                <i data-lucide="share-2"></i>
+                <span>Compartir en WhatsApp</span>
+              </a>
+            </div>
           </div>
           <audio id="storyAudio" preload="metadata"></audio>
         </section>
@@ -808,6 +847,10 @@
           <p class="question" id="reflectionQuestion"></p>
           <p class="source" id="storySource"></p>
           <div class="reflection-actions">
+            <button class="pdf-btn full-width" id="downloadPdfReflectionBtn" type="button" title="Descargar Formato de Charla Pre-operativa en PDF (2 páginas)">
+              <i data-lucide="file-check-2"></i>
+              <span>Descargar Formato de Charla Pre-operativa (PDF 2 Páginas)</span>
+            </button>
             <a class="whatsapp-btn full-width" id="whatsappShareReflectionBtn" target="_blank" rel="noopener noreferrer">
               <i data-lucide="message-circle"></i>
               <span>Compartir esta lección con mi equipo en WhatsApp</span>
@@ -7272,6 +7315,317 @@ ${leccion1}
       botonSiguiente.onclick = () => siguienteDisponible && irAHistoria(siguiente);
     }
 
+    
+    function generarCharlaPDF(historia) {
+      if (!window.jspdf || !window.jspdf.jsPDF) {
+        alert("Cargando motor de generación PDF. Por favor, intenta de nuevo en unos segundos.");
+        return;
+      }
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+
+      // ==================== PÁGINA 1 ====================
+      // Banner superior
+      doc.setFillColor(15, 23, 42); // slate-900
+      doc.roundedRect(14, 8, 182, 17, 2, 2, 'F');
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(11);
+      doc.setTextColor(255, 255, 255);
+      doc.text("FOCUS HSE  |  ARCHIVO TÉCNICO DE SEGURIDAD INDUSTRIAL", 18, 15);
+
+      doc.setFontSize(7.5);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(234, 179, 8); // amber-500
+      doc.text("CHARLA DE SEGURIDAD PRE-OPERATIVA DE 5 MINUTOS  •  \"La seguridad está en los detalles\"", 18, 21);
+
+      // Badge Expediente
+      doc.setFillColor(30, 41, 59);
+      doc.roundedRect(152, 10, 40, 13, 1.5, 1.5, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8.5);
+      doc.setTextColor(255, 255, 255);
+      doc.text((historia.expediente || 'EXPEDIENTE').toUpperCase(), 172, 15, { align: 'center' });
+      doc.setFontSize(7);
+      doc.setTextColor(56, 189, 248);
+      doc.text(historia.fecha || '', 172, 20, { align: 'center' });
+
+      // Formulario de Datos Generales
+      doc.setDrawColor(203, 213, 225);
+      doc.setFillColor(248, 250, 252);
+      doc.roundedRect(14, 27, 182, 19, 1.5, 1.5, 'FD');
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.2);
+      doc.setTextColor(15, 23, 42);
+
+      doc.text("Empresa / Contratista:", 18, 32);
+      doc.setFont('helvetica', 'normal');
+      doc.text("__________________________________", 49, 32);
+
+      doc.setFont('helvetica', 'bold');
+      doc.text("Fecha de Ejecución:", 112, 32);
+      doc.setFont('helvetica', 'normal');
+      doc.text("_____ / _____ / _________", 143, 32);
+
+      doc.setFont('helvetica', 'bold');
+      doc.text("Proyecto / Frente:", 18, 38);
+      doc.setFont('helvetica', 'normal');
+      doc.text("__________________________________", 49, 38);
+
+      doc.setFont('helvetica', 'bold');
+      doc.text("Supervisor a Cargo:", 112, 38);
+      doc.setFont('helvetica', 'normal');
+      doc.text("_________________________", 143, 38);
+
+      doc.setFont('helvetica', 'bold');
+      doc.text("Riesgo Crítico:", 18, 43.5);
+      doc.setFont('helvetica', 'bold');
+      doc.setTextColor(180, 83, 9);
+      const tipoRiesgoTxt = (historia.tipoRiesgo || historia.subtitulo || "Seguridad Operacional / Prevención de Riesgos Críticos").toUpperCase();
+      doc.text(tipoRiesgoTxt.length > 70 ? tipoRiesgoTxt.slice(0, 67) + "..." : tipoRiesgoTxt, 39, 43.5);
+
+      // SECCIÓN 1: CASO REAL
+      let y = 49;
+      doc.setFillColor(2, 132, 199);
+      doc.roundedRect(14, y, 182, 5, 1, 1, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.2);
+      doc.setTextColor(255, 255, 255);
+      doc.text("1. CASO REAL DE REFERENCIA Y ANÁLISIS CAUSAL", 17, y + 3.5);
+
+      y += 5;
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(8);
+      doc.setTextColor(15, 23, 42);
+      const titularLines = doc.splitTextToSize(historia.titular, 174);
+      doc.text(titularLines, 18, y + 4);
+      y += 4 + (titularLines.length * 3.6);
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(6.8);
+      doc.setTextColor(100, 116, 139);
+      doc.text(`Ubicación / Instalación: ${historia.etiquetaImagen || 'Instalación Industrial'}`, 18, y);
+      y += 3.5;
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(7.2);
+      doc.setTextColor(30, 41, 59);
+      const parrafosTexto = (historia.parrafos || []).slice(0, 2).join(' ');
+      const parrafoResumen = parrafosTexto.length > 330 ? parrafosTexto.slice(0, 327) + '...' : parrafosTexto;
+      const lineasParrafo = doc.splitTextToSize(parrafoResumen, 174);
+      doc.text(lineasParrafo, 18, y);
+      y += (lineasParrafo.length * 3.1) + 2.5;
+
+      // SECCIÓN 2: CONTROLES CRÍTICOS
+      doc.setFillColor(15, 118, 110);
+      doc.roundedRect(14, y, 182, 5, 1, 1, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.2);
+      doc.setTextColor(255, 255, 255);
+      doc.text("2. CONTROLES CRÍTICOS Y MEDIDAS PREVENTIVAS PARA EL TURNO DE HOY", 17, y + 3.5);
+
+      y += 7.5;
+      (historia.puntosClave || []).slice(0, 3).forEach((pt) => {
+        doc.setDrawColor(15, 23, 42);
+        doc.setFillColor(255, 255, 255);
+        doc.rect(18, y - 2.8, 3.2, 3.2, 'FD');
+
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(7.2);
+        doc.setTextColor(15, 23, 42);
+        const prefix = `${pt.titulo}: `;
+        const wTitle = doc.getTextWidth(prefix);
+
+        if (wTitle > 65) {
+          const combined = `${pt.titulo}: ${pt.texto}`;
+          const lineasPt = doc.splitTextToSize(combined, 168);
+          doc.text(lineasPt, 23.5, y);
+          y += Math.max(lineasPt.length * 3.3, 4.5);
+        } else {
+          doc.text(prefix, 23.5, y);
+          doc.setFont('helvetica', 'normal');
+          doc.setTextColor(51, 65, 85);
+          const lineasPt = doc.splitTextToSize(pt.texto, 172 - 12 - wTitle);
+          doc.text(lineasPt, 23.5 + wTitle, y);
+          y += Math.max(lineasPt.length * 3.3, 4.5);
+        }
+      });
+
+      // SECCIÓN 3: PREGUNTA Y REFLEXIÓN
+      y += 1;
+      doc.setFillColor(217, 119, 6);
+      doc.roundedRect(14, y, 182, 5, 1, 1, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.2);
+      doc.setTextColor(255, 255, 255);
+      doc.text("3. PREGUNTA DE REFLEXIÓN CON LA CUADRILLA ANTES DE INICIAR", 17, y + 3.5);
+
+      y += 6.5;
+      const qText = `"${historia.pregunta || '¿Qué controles debemos verificar hoy antes de comenzar la tarea?'}"`;
+      const qLines = doc.splitTextToSize(qText, 174);
+      const qBoxHeight = Math.max(qLines.length * 3.5 + 8, 13);
+
+      doc.setFillColor(254, 252, 232);
+      doc.setDrawColor(253, 224, 71);
+      doc.roundedRect(14, y - 1, 182, qBoxHeight, 1.5, 1.5, 'FD');
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.4);
+      doc.setTextColor(120, 53, 15);
+      doc.text(qLines, 18, y + 3);
+
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(6.8);
+      doc.setTextColor(100, 116, 139);
+      doc.text("Compromiso preventivo acordado con el equipo: ____________________________________________________________________________", 18, y + qBoxHeight - 4);
+
+      // SECCIÓN 4: REGISTRO DE CUADRILLA PARTE 1 (Filas 1 a 10)
+      y += qBoxHeight + 2.5;
+      doc.setFillColor(51, 65, 85);
+      doc.roundedRect(14, y, 182, 5, 1, 1, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7.2);
+      doc.setTextColor(255, 255, 255);
+      doc.text("4. REGISTRO DE ASISTENCIA Y COMPROMISO DE TRABAJO SEGURO (PARTE 1)", 17, y + 3.5);
+
+      y += 5;
+      doc.setFillColor(226, 232, 240);
+      doc.setDrawColor(203, 213, 225);
+      doc.rect(14, y, 182, 5, 'FD');
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(6.8);
+      doc.setTextColor(15, 23, 42);
+      doc.text("N°", 16, y + 3.5);
+      doc.text("Nombres y Apellidos", 25, y + 3.5);
+      doc.text("DNI / Cédula", 95, y + 3.5);
+      doc.text("Cargo / Especialidad", 128, y + 3.5);
+      doc.text("Firma del Trabajador", 164, y + 3.5);
+
+      y += 5;
+      doc.setFont('helvetica', 'normal');
+      for (let i = 1; i <= 10; i++) {
+        doc.rect(14, y, 182, 5.8, 'D');
+        doc.text(String(i).padStart(2, '0'), 16, y + 4.1);
+        doc.line(22, y, 22, y + 5.8);
+        doc.line(92, y, 92, y + 5.8);
+        doc.line(125, y, 125, y + 5.8);
+        doc.line(161, y, 161, y + 5.8);
+        y += 5.8;
+      }
+
+      // Firmas Página 1
+      y += 2.5;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(6.8);
+      doc.setTextColor(71, 85, 105);
+
+      doc.text("________________________________________________", 25, y + 6);
+      doc.text("Firma y DNI: Supervisor Responsable del Trabajo", 32, y + 9.5);
+
+      doc.text("________________________________________________", 115, y + 6);
+      doc.text("Firma y Sello: Prevencionista / Asesor HSE", 124, y + 9.5);
+
+      doc.setFontSize(6.5);
+      doc.setTextColor(148, 163, 184);
+      doc.text("Focus HSE  •  Página 1 de 2  •  Documento auditable de cumplimiento de inducción diaria en campo", 105, 290, { align: 'center' });
+
+      // ==================== PÁGINA 2 ====================
+      doc.addPage();
+
+      // Banner superior Página 2
+      doc.setFillColor(15, 23, 42);
+      doc.roundedRect(14, 8, 182, 15, 2, 2, 'F');
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(10);
+      doc.setTextColor(255, 255, 255);
+      doc.text("FOCUS HSE  |  REGISTRO DE ASISTENCIA Y CONTROL EN CAMPO (CONTINUACIÓN CUADRILLA)", 18, 14.5);
+
+      doc.setFontSize(7.2);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(56, 189, 248);
+      doc.text(`EXPEDIENTE: ${historia.expediente}  •  FECHA: ${historia.fecha}  •  TEMA: ${historia.titular.slice(0, 75)}...`, 18, 20);
+
+      // Fila de datos rápidos
+      doc.setDrawColor(203, 213, 225);
+      doc.setFillColor(248, 250, 252);
+      doc.rect(14, 25, 182, 6, 'FD');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(7);
+      doc.setTextColor(15, 23, 42);
+      doc.text("Frente / Área de Trabajo: _____________________________________   Turno / Guardia: ________________   Hora Inicio: ____:____", 18, 29.2);
+
+      // Tabla Extendida: Filas 11 a 38 (¡28 trabajadores adicionales!)
+      let y2 = 33;
+      doc.setFillColor(226, 232, 240);
+      doc.setDrawColor(203, 213, 225);
+      doc.rect(14, y2, 182, 5, 'FD');
+
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(6.8);
+      doc.setTextColor(15, 23, 42);
+      doc.text("N°", 16, y2 + 3.5);
+      doc.text("Nombres y Apellidos", 25, y2 + 3.5);
+      doc.text("DNI / Cédula", 95, y2 + 3.5);
+      doc.text("Cargo / Especialidad", 128, y2 + 3.5);
+      doc.text("Firma del Trabajador", 164, y2 + 3.5);
+
+      y2 += 5;
+      doc.setFont('helvetica', 'normal');
+      for (let i = 11; i <= 38; i++) {
+        doc.rect(14, y2, 182, 5.8, 'D');
+        doc.text(String(i).padStart(2, '0'), 16, y2 + 4.1);
+        doc.line(22, y2, 22, y2 + 5.8);
+        doc.line(92, y2, 92, y2 + 5.8);
+        doc.line(125, y2, 125, y2 + 5.8);
+        doc.line(161, y2, 161, y2 + 5.8);
+        y2 += 5.8;
+      }
+
+      // Observaciones en campo
+      y2 += 2.5;
+      doc.setFillColor(71, 85, 105);
+      doc.roundedRect(14, y2, 182, 4.5, 1, 1, 'F');
+      doc.setFont('helvetica', 'bold');
+      doc.setFontSize(6.8);
+      doc.setTextColor(255, 255, 255);
+      doc.text("OBSERVACIONES / PELIGROS IDENTIFICADOS EN EL ÁREA ANTES DE INICIAR TAREAS", 17, y2 + 3.2);
+
+      y2 += 4.5;
+      doc.setDrawColor(203, 213, 225);
+      doc.rect(14, y2, 182, 14, 'D');
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(6.5);
+      doc.setTextColor(148, 163, 184);
+      doc.text("1. __________________________________________________________________________________________________________________", 17, y2 + 4);
+      doc.text("2. __________________________________________________________________________________________________________________", 17, y2 + 8);
+      doc.text("3. __________________________________________________________________________________________________________________", 17, y2 + 12);
+
+      // Firmas finales Página 2
+      y2 += 16.5;
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(6.8);
+      doc.setTextColor(71, 85, 105);
+
+      doc.text("________________________________________________", 25, y2 + 5);
+      doc.text("Firma y DNI: Supervisor Responsable del Trabajo", 32, y2 + 8.5);
+
+      doc.text("________________________________________________", 115, y2 + 5);
+      doc.text("Firma y Sello: Prevencionista / Asesor HSE", 124, y2 + 8.5);
+
+      // Footer Página 2
+      doc.setFontSize(6.5);
+      doc.setTextColor(148, 163, 184);
+      doc.text("Focus HSE  •  Página 2 de 2  •  Válido para fiscalización y auditorías (ISO 45001 / OSHA 1910)", 105, 290, { align: 'center' });
+
+      // Descargar archivo
+      const safeExp = (historia.expediente || 'EXP').replace(/[^a-zA-Z0-9]/g, '_');
+      const safeDate = (historia.fecha || 'FECHA').replace(/[^a-zA-Z0-9]/g, '_');
+      doc.save(`Charla-Preoperativa-${safeExp}-${safeDate}.pdf`);
+    }
+
     function renderHistoria(historia, hoy) {
       document.getElementById("storyView").hidden = false;
       document.getElementById("listView").hidden = true;
@@ -7337,6 +7691,10 @@ ${leccion1}
         `)
         .join("");
 
+            const btnPdfAudio = document.getElementById("downloadPdfAudioBtn");
+      if (btnPdfAudio) btnPdfAudio.onclick = () => generarCharlaPDF(historia);
+      const btnPdfReflex = document.getElementById("downloadPdfReflectionBtn");
+      if (btnPdfReflex) btnPdfReflex.onclick = () => generarCharlaPDF(historia);
       configurarNavegacion(historia, hoy);
       lucide.createIcons();
     }
