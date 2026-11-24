@@ -1,0 +1,11 @@
+El 14 de noviembre de 2016, en Chattanooga, Tennessee, la planta procesadora de Pilgrim's Pride fue escenario de una electrocución mortal en una fosa de agua.
+
+Un técnico de 34 años limpiaba un canal de residuos con una hidrolavadora a presión. En el agua había una bomba sumergible funcionando a 480 voltios.
+
+El cable de la bomba tenía la goma rota y cables pelados. Para colmo, el tablero eléctrico no tenía disyuntor diferencial de seguridad.
+
+El agua se electrificó por completo. Al pisar el charco con sus botas empapadas, la corriente atravesó su cuerpo hacia la tierra. Murió en segundos.
+
+La lección de Focus HSE: el agua y la electricidad no perdonan; en ambientes húmedos exige siempre disyuntor diferencial GFCI y cables intactos.
+
+La seguridad está en los detalles.

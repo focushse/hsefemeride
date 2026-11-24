@@ -1,0 +1,11 @@
+El 9 de noviembre de 2011, en Iwakuni, Japón, el complejo petroquímico de Mitsui Chemicals vivió la pesadilla de una reacción fuera de control.
+
+En la unidad de resorcinol, un corte de luz detuvo la planta. Los motores se apagaron y las bombas de agua fría se detuvieron.
+
+Dentro de un reactor quedaron toneladas de peróxidos químicos calientes. Sin agitación y sin enfriamiento, las moléculas comenzaron a reaccionar entre sí.
+
+La temperatura subió a más de 200 grados. El reactor de acero inoxidable estalló con una violencia descomunal, destruyendo la unidad y sacudiendo la ciudad.
+
+La lección de Focus HSE: si tu reactor maneja reacciones exotérmicas, el enfriamiento de respaldo no puede depender de un cable eléctrico.
+
+La seguridad está en los detalles.
