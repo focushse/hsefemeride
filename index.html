@@ -1391,12 +1391,36 @@
               <a href="https://paypal.me/NelsonAArca" target="_blank" rel="noopener noreferrer" class="top-nav-btn" style="background:#0070ba; color:#fff; border-color:#0070ba;">
                 <i data-lucide="dollar-sign"></i><span>PayPal</span>
               </a>
-              <a href="https://api.whatsapp.com/send?phone=5493532408340&text=Hola%20Adrian%20(Focus%20HSE),%20deseo%20colaborar%20con%20el%20proyecto%20Archivo%20HSE." target="_blank" rel="noopener noreferrer" class="top-nav-btn" style="background:#7b1fa2; color:#fff; border-color:#7b1fa2;">
+              <button type="button" id="btnToggleYape" class="top-nav-btn" style="background:#7b1fa2; color:#fff; border-color:#7b1fa2; cursor:pointer;" title="Ver número para Yape / Plin">
                 <i data-lucide="smartphone"></i><span>Yape / Plin (Perú)</span>
-              </a>
+              </button>
               <a href="https://mpago.la/2c6ku5v" target="_blank" rel="noopener noreferrer" class="top-nav-btn" style="background:#009ee3; color:#fff; border-color:#009ee3;">
                 <i data-lucide="wallet"></i><span>Mercado Pago (Argentina)</span>
               </a>
+            </div>
+
+            <!-- Desplegable interactivo para Yape / Plin -->
+            <div id="yapeDetailsBox" style="display:none; margin-top:12px; padding:12px 14px; background:rgba(123,31,162,0.18); border:1px solid #7b1fa2; border-radius:8px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <strong style="color:#e1bee7; display:flex; align-items:center; gap:6px; font-size:0.95rem;">
+                  <i data-lucide="smartphone" style="color:#ba68c8;"></i> Aporte por Yape o Plin (Perú)
+                </strong>
+                <span style="font-size:0.75rem; background:rgba(186,104,200,0.25); color:#e1bee7; padding:2px 6px; border-radius:4px;">Directo</span>
+              </div>
+              <p style="margin:0 0 10px; font-size:0.88rem; color:#f3e5f5; line-height:1.4;">
+                Envía tu aporte desde tu app de Yape o Plin al siguiente número:
+              </p>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div style="flex:1; background:rgba(0,0,0,0.35); border:1px dashed #ba68c8; padding:8px 12px; font-size:1.2rem; font-weight:900; letter-spacing:1.5px; color:#ffffff; text-align:center; border-radius:6px; font-family:monospace;">
+                  941 644 113
+                </div>
+                <button type="button" id="btnCopyYape" class="top-nav-btn" style="background:#7b1fa2; color:#fff; border-color:#ba68c8; padding:8px 14px; font-weight:700; white-space:nowrap;">
+                  <i data-lucide="copy" id="iconCopyYape"></i><span id="textCopyYape">Copiar</span>
+                </button>
+              </div>
+              <p style="margin:8px 0 0; font-size:0.8rem; color:#ce93d8; text-align:center;">
+                Titular: <strong>Adrián Arca</strong> • Si deseas, puedes <a href="https://api.whatsapp.com/send?phone=5493532408340&text=Hola%20Adrian%20(Focus%20HSE),%20te%20env%C3%ADo%20mi%20constancia%20de%20Yape/Plin." target="_blank" rel="noopener noreferrer" style="color:#ffffff; text-decoration:underline;">enviar tu constancia por WhatsApp</a>.
+              </p>
             </div>
           </div>
         </div>
@@ -8317,6 +8341,37 @@ ${leccion1}
       btnShareGenSupport.onclick = () => {
         const msg = "🛡️ Les comparto *Archivo HSE*: un recurso gratuito diario de accidentes industriales reales con charlas de seguridad en audio y PDF imprimibles de 5 minutos: " + window.location.origin + window.location.pathname;
         window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, "_blank");
+      };
+    }
+
+    // Toggle y copia para Yape / Plin (Perú)
+    const btnToggleYape = document.getElementById("btnToggleYape");
+    const yapeBox = document.getElementById("yapeDetailsBox");
+    if (btnToggleYape && yapeBox) {
+      btnToggleYape.onclick = () => {
+        const isHidden = yapeBox.style.display === "none";
+        yapeBox.style.display = isHidden ? "block" : "none";
+        if (isHidden && window.lucide) lucide.createIcons();
+      };
+    }
+
+    const btnCopyYape = document.getElementById("btnCopyYape");
+    if (btnCopyYape) {
+      btnCopyYape.onclick = () => {
+        const num = "941644113";
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(num).then(() => {
+            const txt = document.getElementById("textCopyYape");
+            if (txt) {
+              txt.textContent = "¡Copiado!";
+              setTimeout(() => { txt.textContent = "Copiar"; }, 2500);
+            }
+          }).catch(() => {
+            prompt("Número para Yape / Plin:", num);
+          });
+        } else {
+          prompt("Número para Yape / Plin:", num);
+        }
       };
     }
 
