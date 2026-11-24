@@ -1,0 +1,9 @@
+El 23 de noviembre de 2017, en Nebraska, un electricista experimentado de Cargill murió electrocutado dentro de una sala eléctrica.
+
+Fue a revisar un tablero de 480 voltios que fallaba. En vez de cortar la energía aguas arriba, abrió el gabinete en caliente y sacó la tapa plástica que tapaba las barras de cobre energizadas.
+
+No usaba guantes dieléctricos ni máscara para arco eléctrico. Metió la mano con un destornillador común, rozó la barra viva y recibió una descarga letal directa al corazón.
+
+OSHA concluyó que no se aplicaron las 5 Reglas de Oro de seguridad eléctrica.
+
+¿La lección de Focus HSE? Desconecta, bloquea con candado y verifica siempre ausencia de tensión con el método vivo-muerto-vivo. La seguridad está en los detalles.

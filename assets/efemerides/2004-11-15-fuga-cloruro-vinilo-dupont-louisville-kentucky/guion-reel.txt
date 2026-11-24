@@ -1,0 +1,9 @@
+El 15 de noviembre de 2004, en Louisville, Kentucky, la planta de DuPont estuvo al borde de la catástrofe por una sola válvula mal identificada.
+
+Un operador debía drenar agua de un reactor. Pero en el entramado de tuberías había dos válvulas idénticas, juntas y sin carteles claros.
+
+Abrió la equivocada. En segundos, una nube de cloruro de vinilo —gas inflamable y cancerígeno— invadió la planta. Solo un milagro evitó una explosión masiva.
+
+La investigación de la CSB concluyó que confiar en la memoria del operador sin identificación física en campo es una trampa mortal.
+
+¿La lección de Focus HSE? Toda válvula crítica debe estar rotulada según P&ID, bloqueada y verificada antes de moverla un solo milímetro. La seguridad está en los detalles.

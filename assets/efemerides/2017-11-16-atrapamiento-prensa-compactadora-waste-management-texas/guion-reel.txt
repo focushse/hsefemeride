@@ -1,0 +1,9 @@
+El 16 de noviembre de 2017, en Texas, un operario murió aplastado en una planta de reciclaje de Waste Management por confiar en una máquina en pausa.
+
+Una prensa hidráulica de cartón se trabó. El trabajador entró a la cámara para sacar las cajas a mano, sin colocar su candado de bloqueo LOTO.
+
+Al destrabar el cartón, el sensor infrarrojo detectó el espacio libre y la máquina arrancó sola. El pistón avanzó con 50 toneladas de fuerza. No hubo escapatoria.
+
+OSHA concluyó que ingresar a una máquina automática sin desenergizar es una trampa mortal.
+
+¿La lección de Focus HSE? Nunca confíes en una pausa electrónica. Aplica LOTO, purga la energía hidráulica y usa herramientas externas. La seguridad está en los detalles.
