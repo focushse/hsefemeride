@@ -1,0 +1,25 @@
+{
+  "name": "hsefemeride",
+  "version": "1.0.0",
+  "description": "Proyecto web estatico de una sola pagina para publicar efemerides HSE en GitHub Pages.",
+  "main": "index.js",
+  "scripts": {
+    "build": "node tools/build_protected.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/focushse/hsefemeride.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/focushse/hsefemeride/issues"
+  },
+  "homepage": "https://github.com/focushse/hsefemeride#readme",
+  "devDependencies": {
+    "javascript-obfuscator": "^5.10.1"
+  }
+}
