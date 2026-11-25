@@ -17,11 +17,11 @@ if (!fs.existsSync(sourceFile)) {
 
 let html = fs.readFileSync(sourceFile, 'utf8');
 
-// 1. Extraer el bloque <script> principal
+// 1. Extraer el bloque <script> principal (el último en el documento)
 const scriptStartTag = '<script>';
 const scriptEndTag = '</script>';
 
-const startIdx = html.indexOf(scriptStartTag);
+const startIdx = html.lastIndexOf(scriptStartTag);
 const endIdx = html.lastIndexOf(scriptEndTag);
 
 if (startIdx === -1 || endIdx === -1) {
